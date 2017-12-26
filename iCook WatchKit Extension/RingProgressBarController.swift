@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import SpriteKit
 
 class RingProgressBarController: WKInterfaceController {
 
@@ -17,6 +17,8 @@ class RingProgressBarController: WKInterfaceController {
     var ring:SKRingNode!
     var position = 1.0 // start from top (100 %)
     var durationInMin:Double = 1.0 // default duration to 60 sec
+    var timer:Timer?
+    var scene:GameScene!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -25,7 +27,7 @@ class RingProgressBarController: WKInterfaceController {
         
         // do reverse ring progress bar
         
-        let scene = GameScene(size: contentFrame.size)
+        scene = GameScene(size: contentFrame.size)
         skScene.presentScene(scene)
         
         ring = SKRingNode(diameter: contentFrame.width)
@@ -33,7 +35,7 @@ class RingProgressBarController: WKInterfaceController {
         ring.arcEnd = CGFloat(position)
         
         // set duration
-        durationInMin = 2.0
+        durationInMin = 1.0
         
         print(getPositionStep())
         
@@ -57,12 +59,21 @@ class RingProgressBarController: WKInterfaceController {
     
     func startTimer() -> Void {
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func getPositionStep() -> Double {
         let durationToSec = durationInMin * 60
         return 1.0/durationToSec
+    }
+    
+    func showText() -> Void {
+        let winner = SKLabelNode(fontNamed: "GeezaPro")
+        winner.text = "You win !"
+        winner.fontSize = 20
+        winner.fontColor = SKColor.orange
+        winner.position = CGPoint(x: contentFrame.midX, y: contentFrame.midY-20)
+        scene.addChild(winner)
     }
     
     @objc func update() {
@@ -73,6 +84,14 @@ class RingProgressBarController: WKInterfaceController {
         if(position >= 0.0){
             position -= getPositionStep()
             ring.arcEnd = CGFloat(position)
+        } else {
+            // stop timer
+            //showText()
+            if(timer != nil){
+                
+                timer?.invalidate()
+                timer = nil
+            }
         }
     }
     
