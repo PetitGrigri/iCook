@@ -63,7 +63,9 @@ extension InterfaceController:WCSessionDelegate {
             return
         }
         
-        self.etapeNum.setText(String(etape))
+        let etapeTxt = "Étape : \(etape)"
+        
+        self.etapeNum.setText(String(etapeTxt))
         self.descriptionEtape.setText(desc)
         
     }

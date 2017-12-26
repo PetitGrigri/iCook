@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -15,7 +15,13 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="iCook_WatchKit_App" customModuleProvider="target">
                     <items>
                         <label width="136" alignment="left" text="Label" textAlignment="center" id="Xbu-Tw-zoV"/>
-                        <label width="136" height="91" alignment="left" text="Label" textAlignment="left" id="VZd-Ww-DUV"/>
+                        <label width="136" height="91" alignment="left" text="Label" textAlignment="center" numberOfLines="0" id="VZd-Ww-DUV"/>
+                        <group width="1" alignment="left" id="cfO-Tc-T6F">
+                            <items>
+                                <button width="0.5" alignment="left" title="&lt;" id="4qQ-cU-12o"/>
+                                <button width="0.5" alignment="left" title="&gt;" id="IQh-tv-XPt"/>
+                            </items>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="descriptionEtape" destination="VZd-Ww-DUV" id="UpK-gg-nNn"/>
@@ -23,7 +29,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="344.5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
