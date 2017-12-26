@@ -19,7 +19,11 @@
                         <group width="1" alignment="left" id="cfO-Tc-T6F">
                             <items>
                                 <button width="0.5" alignment="left" title="&lt;" id="4qQ-cU-12o"/>
-                                <button width="0.5" alignment="left" title="&gt;" id="IQh-tv-XPt"/>
+                                <button width="0.5" alignment="left" title="&gt;" id="IQh-tv-XPt">
+                                    <connections>
+                                        <action selector="nextButton" destination="AgC-eL-Hgc" id="cNp-Ps-Cyg"/>
+                                    </connections>
+                                </button>
                             </items>
                         </group>
                     </items>
@@ -30,6 +34,20 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="344.5"/>
+        </scene>
+        <!--ProgressRing-->
+        <scene sceneID="bsl-cm-2Gg">
+            <objects>
+                <controller identifier="ProgressRing" id="azG-Xp-4W8" customClass="RingProgressBarController" customModule="iCook_WatchKit_Extension">
+                    <items>
+                        <spriteKitScene alignment="left" id="5Dx-N3-ako"/>
+                    </items>
+                    <connections>
+                        <outlet property="skScene" destination="5Dx-N3-ako" id="lcN-YF-o1c"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="459" y="350"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

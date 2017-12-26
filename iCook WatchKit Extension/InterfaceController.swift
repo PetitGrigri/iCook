@@ -15,7 +15,6 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var etapeNum: WKInterfaceLabel!
     @IBOutlet var descriptionEtape: WKInterfaceLabel!
     
-    
     override func awake(withContext context: Any?) {
         
         super.awake(withContext: context)
@@ -39,8 +38,13 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
+    @IBAction func nextButton() {
+        pushController(withName: "ProgressRing", context: nil)
+    }
 }
+
+
 
 
 
