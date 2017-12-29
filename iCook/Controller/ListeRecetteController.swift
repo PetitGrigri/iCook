@@ -47,10 +47,9 @@ class ListeRecetteController : UIViewController {
             print(index)
 
             if let viewRecette = Bundle.main.loadNibNamed("RecetteScrollItemView", owner: self, options: nil)?.first as? RecetteScrollItemView {
-                //remplissage de notre view
-                viewRecette.desciptionRecette.text = recette.description
-                viewRecette.titreRecette.text = recette.nom
-                viewRecette.imageRecette.image = recette.image
+                
+                //enregistrement de la recette dans la vue
+                viewRecette.recette = recette
                 
                 //affichage de notre vue sur toute la surface disponible
                 viewRecette.frame.size.width = scrollViewWidth
@@ -59,8 +58,6 @@ class ListeRecetteController : UIViewController {
                 //positionnement de notre vue (on fait en sorte qu'elle soit à la suite)
                 viewRecette.frame.origin.x = CGFloat(index) * scrollViewWidth
                 self.scrollView.addSubview(viewRecette)
-                
-                
             }
         }
 
