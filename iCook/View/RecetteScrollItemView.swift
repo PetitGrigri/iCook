@@ -11,15 +11,18 @@ import UIKit
 
 class RecetteScrollItemView: UIView {
 
-    @IBOutlet weak var desciptionRecette: UITextView!
-    @IBOutlet weak var titreRecette: UILabel!
-    @IBOutlet weak var imageRecette: UIImageView!
+    @IBOutlet fileprivate weak var desciptionRecette: UITextView!
+    @IBOutlet fileprivate weak var titreRecette: UILabel!
+    @IBOutlet fileprivate weak var imageRecette: UIImageView!
+    
+    var delegate:TouchProtocol?
     
     var recette:Recette? {
         didSet {
             reloadUI()
         }
     }
+    
     
     func reloadUI() {
         print("load New Recette")
@@ -28,16 +31,23 @@ class RecetteScrollItemView: UIView {
         guard let maRecette = self.recette else {
             return
         }
-        
+
         //modification de l'affichage de l'interface
         desciptionRecette.text = maRecette.description
         titreRecette.text = maRecette.nom
         imageRecette.image = maRecette.image
+        
+        
     }
     
     @IBAction func touchCuisiner(_ sender: Any) {
         print("touch Cuisiner")
-        print("L'utilisateur a envie de cuisiner une \(self.recette?.nom)")
+        print("L'utilisateur souhaite cuisiner une \(self.recette?.nom)")
+        
+        if (delegate != nil) {
+            delegate?.touch()
+        }
     }
 }
+
 

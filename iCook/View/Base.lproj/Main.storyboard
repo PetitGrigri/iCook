@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8d7-sI-EjU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sdq-G8-8Kh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,10 +11,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Navigation Controller-->
+        <scene sceneID="XBz-Tk-QDl">
+            <objects>
+                <navigationController id="sdq-G8-8Kh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jv6-np-dRT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UPt-Qx-OqB" kind="relationship" relationship="rootViewController" id="aOs-8g-tex"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vB5-6U-3li" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-681" y="-442"/>
+        </scene>
+        <!--Votre recette-->
         <scene sceneID="pap-Dn-dbR">
             <objects>
-                <viewController id="Idw-eU-aVa" customClass="CuisinerController" customModule="iCook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Votre recette" id="Idw-eU-aVa" customClass="CuisinerController" customModule="iCook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yub-DR-mC8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,9 +54,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82K-bR-yVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="688.79999999999995" y="-77.811094452773617"/>
+            <point key="canvasLocation" x="1046" y="-442"/>
         </scene>
-        <!--Item 1-->
+        <!--Liste de vos recette-->
         <scene sceneID="HFf-NT-eVb">
             <objects>
                 <viewController id="UPt-Qx-OqB" customClass="ListeRecetteController" customModule="iCook" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,7 +72,7 @@
                                 </constraints>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoBleu" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-7E-5qc">
-                                <rect key="frame" x="155" y="80" width="64" height="64"/>
+                                <rect key="frame" x="155" y="124" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="R1g-5i-mGX"/>
                                     <constraint firstAttribute="height" constant="64" id="jZ9-fX-IOF"/>
@@ -75,32 +91,15 @@
                         <viewLayoutGuide key="safeArea" id="1qE-xz-eVB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="fjT-Cj-si6"/>
+                    <navigationItem key="navigationItem" title="Liste de vos recette" id="AUA-aR-M3U"/>
                     <connections>
                         <outlet property="scrollView" destination="UhW-KY-MKG" id="uVQ-if-8lR"/>
+                        <segue destination="Idw-eU-aVa" kind="show" identifier="ListeToRecette" id="EGp-jb-Bk8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ds-Ir-3FK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="688.79999999999995" y="-743.47826086956525"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="JPh-ZI-sXy">
-            <objects>
-                <tabBarController id="8d7-sI-EjU" sceneMemberID="viewController">
-                    <tabBar key="tabBar" alpha="0.69999999999999996" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dld-QP-D8I">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" name="DarkBlue"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="UPt-Qx-OqB" kind="relationship" relationship="viewControllers" id="LzU-PO-AHF"/>
-                        <segue destination="Idw-eU-aVa" kind="relationship" relationship="viewControllers" id="FXL-VX-AuG"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x1A-ZF-Uld" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-263" y="-410"/>
+            <point key="canvasLocation" x="290" y="-442"/>
         </scene>
     </scenes>
     <resources>

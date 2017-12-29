@@ -11,6 +11,7 @@ import Foundation
 import UIKit
 
 class ListeRecetteController : UIViewController {
+    
     //objet lié à la vue
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -38,6 +39,8 @@ class ListeRecetteController : UIViewController {
     {
         //récupération de la taille de la view principale
         self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
+
+        
         let scrollViewWidth:CGFloat = self.scrollView.frame.width
         let scrollViewHeight:CGFloat = self.scrollView.frame.height
 
@@ -50,6 +53,9 @@ class ListeRecetteController : UIViewController {
                 
                 //enregistrement de la recette dans la vue
                 viewRecette.recette = recette
+                
+                //
+                viewRecette.delegate = self
                 
                 //affichage de notre vue sur toute la surface disponible
                 viewRecette.frame.size.width = scrollViewWidth
@@ -67,9 +73,18 @@ class ListeRecetteController : UIViewController {
 
 
     }
+    
+    
 }
 
 
 extension ListeRecetteController : UIScrollViewDelegate {
     
+}
+
+extension ListeRecetteController : TouchProtocol {
+    func touch() {
+        print("touchProtocol lauched")
+        performSegue(withIdentifier: "ListeToRecette", sender: self)
+    }
 }
