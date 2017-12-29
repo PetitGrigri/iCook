@@ -65,14 +65,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhW-KY-MKG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="CSU-nY-VYY"/>
-                                    <constraint firstAttribute="height" constant="667" id="J4i-wg-Ioa"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="-64" width="375" height="731"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoBleu" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-7E-5qc">
-                                <rect key="frame" x="155" y="124" width="64" height="64"/>
+                                <rect key="frame" x="155" y="158" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="R1g-5i-mGX"/>
                                     <constraint firstAttribute="height" constant="64" id="jZ9-fX-IOF"/>
@@ -84,9 +80,9 @@
                             <constraint firstItem="UhW-KY-MKG" firstAttribute="trailing" secondItem="1qE-xz-eVB" secondAttribute="trailing" id="2LI-dr-XLu"/>
                             <constraint firstItem="rCG-7E-5qc" firstAttribute="centerX" secondItem="CGM-dt-B76" secondAttribute="centerX" id="DlH-VV-TUM"/>
                             <constraint firstItem="UhW-KY-MKG" firstAttribute="leading" secondItem="1qE-xz-eVB" secondAttribute="leading" id="GV6-HP-Qem"/>
-                            <constraint firstItem="UhW-KY-MKG" firstAttribute="top" secondItem="CGM-dt-B76" secondAttribute="top" id="ITi-9r-Kf3"/>
-                            <constraint firstItem="rCG-7E-5qc" firstAttribute="top" secondItem="1qE-xz-eVB" secondAttribute="top" constant="60" id="W4r-9p-WJP"/>
+                            <constraint firstItem="rCG-7E-5qc" firstAttribute="top" secondItem="1qE-xz-eVB" secondAttribute="top" constant="94" id="W4r-9p-WJP"/>
                             <constraint firstAttribute="bottom" secondItem="UhW-KY-MKG" secondAttribute="bottom" id="XnV-X2-qcV"/>
+                            <constraint firstItem="UhW-KY-MKG" firstAttribute="top" secondItem="CGM-dt-B76" secondAttribute="top" constant="-64" id="oib-a1-fNP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1qE-xz-eVB"/>
                     </view>

@@ -11,7 +11,7 @@ import UIKit
 
 class RecetteScrollItemView: UIView {
 
-    @IBOutlet fileprivate weak var desciptionRecette: UITextView!
+    @IBOutlet weak var desciptionRecette: UILabel!
     @IBOutlet fileprivate weak var titreRecette: UILabel!
     @IBOutlet fileprivate weak var imageRecette: UIImageView!
     

@@ -17,79 +17,87 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-Tx-WW7">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                </imageView>
-                <visualEffectView opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEv-ly-hwX">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1gi-Xs-umZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmR-cB-oVg">
+                    <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y7W-It-Wpi">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                </view>
+                <visualEffectView opaque="NO" clipsSubviews="YES" alpha="0.44999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZi-1c-MGk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cf1-ml-cPJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-Tx-WW7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hPT-Tx-WW7" firstAttribute="leading" secondItem="cf1-ml-cPJ" secondAttribute="leading" id="1Qe-IF-FmH"/>
+                            <constraint firstItem="hPT-Tx-WW7" firstAttribute="top" secondItem="cf1-ml-cPJ" secondAttribute="top" id="BX6-jZ-YKq"/>
+                        </constraints>
                     </view>
+                    <constraints>
+                        <constraint firstItem="hPT-Tx-WW7" firstAttribute="height" secondItem="jZi-1c-MGk" secondAttribute="height" id="7Zz-57-hNy"/>
+                        <constraint firstItem="hPT-Tx-WW7" firstAttribute="width" secondItem="jZi-1c-MGk" secondAttribute="width" id="Sxg-5d-2oR"/>
+                    </constraints>
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nS0-Y5-cGh">
-                    <rect key="frame" x="20" y="160" width="335" height="442"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une recette" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfY-hh-soG">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="UhB-RG-QJ7"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                            <color key="textColor" name="DarkBlue"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="f3l-a6-V5d">
-                            <rect key="frame" x="0.0" y="40" width="335" height="362"/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiX-7Z-jci">
-                            <rect key="frame" x="0.0" y="402" width="335" height="40"/>
-                            <color key="backgroundColor" name="DarkBlue"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="2QG-f0-i1G"/>
-                                <constraint firstAttribute="width" constant="335" id="ZF1-mr-zky"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                            <state key="normal" title="Cuisiner">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="touchCuisiner:" destination="iN0-l3-epB" eventType="touchUpInside" id="TQq-Sa-ygf"/>
-                            </connections>
-                        </button>
-                    </subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiX-7Z-jci">
+                    <rect key="frame" x="8" y="523" width="359" height="40"/>
+                    <color key="backgroundColor" name="DarkBlue"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="uiX-7Z-jci" secondAttribute="bottom" id="4XJ-YL-iOT"/>
-                        <constraint firstItem="f3l-a6-V5d" firstAttribute="leading" secondItem="nS0-Y5-cGh" secondAttribute="leading" id="7d2-Ba-rpG"/>
-                        <constraint firstAttribute="trailing" secondItem="f3l-a6-V5d" secondAttribute="trailing" id="K0N-BG-fz0"/>
-                        <constraint firstItem="uiX-7Z-jci" firstAttribute="top" secondItem="f3l-a6-V5d" secondAttribute="bottom" id="Xbh-mS-bCN"/>
-                        <constraint firstItem="uiX-7Z-jci" firstAttribute="leading" secondItem="nS0-Y5-cGh" secondAttribute="leading" id="f9k-ZG-5wj"/>
-                        <constraint firstAttribute="trailing" secondItem="uiX-7Z-jci" secondAttribute="trailing" id="iyF-Oq-8Cu"/>
+                        <constraint firstAttribute="height" constant="40" id="I4y-Mf-hQi"/>
                     </constraints>
-                </stackView>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                    <state key="normal" title="Cuisiner">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="touchCuisiner:" destination="iN0-l3-epB" eventType="touchUpInside" id="TQq-Sa-ygf"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUP-I8-upz">
+                    <rect key="frame" x="16" y="248" width="343" height="155.5"/>
+                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une recette" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfY-hh-soG">
+                    <rect key="frame" x="8" y="124" width="359" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="dzX-FP-abS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <color key="textColor" name="DarkBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="nS0-Y5-cGh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="140" id="0sV-H5-K8b"/>
-                <constraint firstAttribute="trailing" secondItem="hPT-Tx-WW7" secondAttribute="trailing" id="1fk-vP-m9z"/>
-                <constraint firstItem="hPT-Tx-WW7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="DgQ-mz-3wG"/>
-                <constraint firstItem="jEv-ly-hwX" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="FPP-Ji-flC"/>
-                <constraint firstItem="hPT-Tx-WW7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="GA5-is-eBS"/>
-                <constraint firstItem="nS0-Y5-cGh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="PVy-KK-TVF"/>
-                <constraint firstItem="jEv-ly-hwX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ZhZ-dr-STQ"/>
-                <constraint firstAttribute="bottom" secondItem="hPT-Tx-WW7" secondAttribute="bottom" id="ctB-Y9-FjR"/>
-                <constraint firstItem="jEv-ly-hwX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hr7-Ya-wH0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nS0-Y5-cGh" secondAttribute="trailing" constant="20" id="m7C-F6-2h7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nS0-Y5-cGh" secondAttribute="bottom" constant="65" id="wnE-rQ-Ehu"/>
-                <constraint firstItem="jEv-ly-hwX" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="yAp-Bg-GUX"/>
+                <constraint firstItem="hPT-Tx-WW7" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="2ap-gk-eIf"/>
+                <constraint firstItem="ZfY-hh-soG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="2ha-1P-ta2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZfY-hh-soG" secondAttribute="trailing" constant="8" id="87p-2h-8mN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uiX-7Z-jci" secondAttribute="trailing" constant="8" id="8ed-TX-HOP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UUP-I8-upz" secondAttribute="trailing" constant="16" id="9on-AX-OQb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uiX-7Z-jci" secondAttribute="bottom" constant="104" id="EtK-af-4ab"/>
+                <constraint firstItem="hPT-Tx-WW7" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="T8C-JQ-gTn"/>
+                <constraint firstItem="jZi-1c-MGk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Uno-UN-Aq9"/>
+                <constraint firstItem="jZi-1c-MGk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WZ1-LB-kLg"/>
+                <constraint firstItem="UUP-I8-upz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="aCu-Pi-cyy"/>
+                <constraint firstItem="uiX-7Z-jci" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="ch3-4e-h5O"/>
+                <constraint firstItem="ZfY-hh-soG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="104" id="mKE-EY-Sgl"/>
+                <constraint firstItem="UUP-I8-upz" firstAttribute="top" secondItem="ZfY-hh-soG" secondAttribute="bottom" constant="84" id="ptt-4R-q8L"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="desciptionRecette" destination="f3l-a6-V5d" id="jZ4-nY-OwC"/>
+                <outlet property="desciptionRecette" destination="UUP-I8-upz" id="y7D-Gd-OFZ"/>
                 <outlet property="imageRecette" destination="hPT-Tx-WW7" id="BRI-k4-rCf"/>
                 <outlet property="titreRecette" destination="ZfY-hh-soG" id="Bet-ys-Q7k"/>
             </connections>
