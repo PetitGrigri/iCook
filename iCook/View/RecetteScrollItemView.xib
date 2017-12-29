@@ -29,7 +29,7 @@
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nS0-Y5-cGh">
-                    <rect key="frame" x="20" y="160" width="335" height="407"/>
+                    <rect key="frame" x="20" y="160" width="335" height="442"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une recette" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfY-hh-soG">
                             <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
@@ -41,20 +41,20 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="f3l-a6-V5d">
-                            <rect key="frame" x="0.0" y="40" width="335" height="327"/>
+                            <rect key="frame" x="0.0" y="40" width="335" height="362"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiX-7Z-jci">
-                            <rect key="frame" x="0.0" y="367" width="335" height="40"/>
-                            <color key="backgroundColor" red="0.14509804549999999" green="0.24705882370000001" blue="0.37647059560000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="0.0" y="402" width="335" height="40"/>
+                            <color key="backgroundColor" name="DarkBlue"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="2QG-f0-i1G"/>
                                 <constraint firstAttribute="width" constant="335" id="ZF1-mr-zky"/>
                             </constraints>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                            <state key="normal" title="Button">
+                            <state key="normal" title="Cuisiner">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
@@ -71,7 +71,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="nS0-Y5-cGh" secondAttribute="bottom" constant="100" id="0EW-40-Pw5"/>
                 <constraint firstItem="nS0-Y5-cGh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="140" id="0sV-H5-K8b"/>
                 <constraint firstAttribute="trailing" secondItem="hPT-Tx-WW7" secondAttribute="trailing" id="1fk-vP-m9z"/>
                 <constraint firstItem="hPT-Tx-WW7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="DgQ-mz-3wG"/>
@@ -82,6 +81,7 @@
                 <constraint firstAttribute="bottom" secondItem="hPT-Tx-WW7" secondAttribute="bottom" id="ctB-Y9-FjR"/>
                 <constraint firstItem="jEv-ly-hwX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hr7-Ya-wH0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nS0-Y5-cGh" secondAttribute="trailing" constant="20" id="m7C-F6-2h7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nS0-Y5-cGh" secondAttribute="bottom" constant="65" id="wnE-rQ-Ehu"/>
                 <constraint firstItem="jEv-ly-hwX" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="yAp-Bg-GUX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
