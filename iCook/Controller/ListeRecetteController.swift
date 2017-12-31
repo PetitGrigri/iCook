@@ -53,8 +53,7 @@ class ListeRecetteController : UIViewController {
                 
                 //enregistrement de la recette dans la vue
                 viewRecette.recette = recette
-                
-                //
+
                 viewRecette.delegate = self
                 
                 //affichage de notre vue sur toute la surface disponible
@@ -85,6 +84,8 @@ extension ListeRecetteController : UIScrollViewDelegate {
 extension ListeRecetteController : TouchProtocol {
     func touch() {
         print("touchProtocol lauched")
-        performSegue(withIdentifier: "ListeToRecette", sender: self)
+        //performSegue(withIdentifier: "ListeToRecette", sender: self)
+        performSegue(withIdentifier: "ListeToDescription", sender: self)
+
     }
 }

@@ -12,6 +12,11 @@
 		0598BEC01FD9B75B002570E3 /* Recette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598BEBF1FD9B75B002570E3 /* Recette.swift */; };
 		0598BEC41FD9B8DE002570E3 /* Etape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598BEC31FD9B8DE002570E3 /* Etape.swift */; };
 		05C37EC01FF67D3900125FA9 /* TouchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EBF1FF67D3900125FA9 /* TouchProtocol.swift */; };
+		05C37EC41FF9005800125FA9 /* RecetteDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */; };
+		05C37EC61FF900BD00125FA9 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC51FF900BD00125FA9 /* Ingredient.swift */; };
+		05C37EC81FF902A200125FA9 /* Ustensile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC71FF902A200125FA9 /* Ustensile.swift */; };
+		05C37ECA1FF9316000125FA9 /* SectionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC91FF9316000125FA9 /* SectionDescriptionView.swift */; };
+		05C37ECC1FF9319200125FA9 /* SectionDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C37ECB1FF9319200125FA9 /* SectionDescriptionView.xib */; };
 		05DCC4171FD3574000A010D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC4161FD3574000A010D3 /* AppDelegate.swift */; };
 		05DCC41C1FD3574000A010D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC41A1FD3574000A010D3 /* Main.storyboard */; };
 		05DCC41E1FD3574000A010D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC41D1FD3574000A010D3 /* Assets.xcassets */; };
@@ -119,6 +124,11 @@
 		0598BEBF1FD9B75B002570E3 /* Recette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recette.swift; sourceTree = "<group>"; };
 		0598BEC31FD9B8DE002570E3 /* Etape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etape.swift; sourceTree = "<group>"; };
 		05C37EBF1FF67D3900125FA9 /* TouchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchProtocol.swift; sourceTree = "<group>"; };
+		05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetteDescriptionController.swift; sourceTree = "<group>"; };
+		05C37EC51FF900BD00125FA9 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		05C37EC71FF902A200125FA9 /* Ustensile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ustensile.swift; sourceTree = "<group>"; };
+		05C37EC91FF9316000125FA9 /* SectionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDescriptionView.swift; sourceTree = "<group>"; };
+		05C37ECB1FF9319200125FA9 /* SectionDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionDescriptionView.xib; sourceTree = "<group>"; };
 		05DCC4131FD3574000A010D3 /* iCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DCC4161FD3574000A010D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05DCC41B1FD3574000A010D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +203,8 @@
 				05DCC41A1FD3574000A010D3 /* Main.storyboard */,
 				05E5E5331FD89D6F001863A4 /* RecetteScrollItemView.xib */,
 				05E5E5361FD8A4DB001863A4 /* RecetteScrollItemView.swift */,
+				05C37ECB1FF9319200125FA9 /* SectionDescriptionView.xib */,
+				05C37EC91FF9316000125FA9 /* SectionDescriptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +214,8 @@
 			children = (
 				0598BEBF1FD9B75B002570E3 /* Recette.swift */,
 				0598BEC31FD9B8DE002570E3 /* Etape.swift */,
+				05C37EC51FF900BD00125FA9 /* Ingredient.swift */,
+				05C37EC71FF902A200125FA9 /* Ustensile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +301,7 @@
 		05E5E53A1FD8A6EF001863A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */,
 				054F9EDA1FD4845D003149C2 /* ListeRecetteController.swift */,
 				054F9EDC1FD48BBD003149C2 /* CuisinerController.swift */,
 			);
@@ -463,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05E5E5341FD89D6F001863A4 /* RecetteScrollItemView.xib in Resources */,
+				05C37ECC1FF9319200125FA9 /* SectionDescriptionView.xib in Resources */,
 				05DCC4211FD3574000A010D3 /* LaunchScreen.storyboard in Resources */,
 				05DCC41E1FD3574000A010D3 /* Assets.xcassets in Resources */,
 				05DCC41C1FD3574000A010D3 /* Main.storyboard in Resources */,
@@ -500,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C37EC81FF902A200125FA9 /* Ustensile.swift in Sources */,
 				E094915C1FF2CEC100AC1E8D /* Vector3.swift in Sources */,
 				E09491421FF2CEC100AC1E8D /* CGFloat.swift in Sources */,
 				E09491581FF2CEC100AC1E8D /* SKTEffects.swift in Sources */,
@@ -509,10 +526,12 @@
 				0598BEC41FD9B8DE002570E3 /* Etape.swift in Sources */,
 				E09491561FF2CEC100AC1E8D /* CGPoint+Extensions.swift in Sources */,
 				054F9EDD1FD48BBD003149C2 /* CuisinerController.swift in Sources */,
+				05C37EC41FF9005800125FA9 /* RecetteDescriptionController.swift in Sources */,
 				E09491521FF2CEC100AC1E8D /* SKAction+SpecialEffects.swift in Sources */,
 				05E5E5371FD8A4DB001863A4 /* RecetteScrollItemView.swift in Sources */,
 				E09491441FF2CEC100AC1E8D /* SKRingNode.swift in Sources */,
 				E09491461FF2CEC100AC1E8D /* RingType.swift in Sources */,
+				05C37EC61FF900BD00125FA9 /* Ingredient.swift in Sources */,
 				E094915E1FF2CEC100AC1E8D /* CGFloat+Extensions.swift in Sources */,
 				E09491481FF2CEC100AC1E8D /* SKColor+Extensions.swift in Sources */,
 				05DCC4171FD3574000A010D3 /* AppDelegate.swift in Sources */,
@@ -524,6 +543,7 @@
 				E094915A1FF2CEC100AC1E8D /* SKTAudio.swift in Sources */,
 				E094914A1FF2CEC100AC1E8D /* CGVector+Extensions.swift in Sources */,
 				0598BEC01FD9B75B002570E3 /* Recette.swift in Sources */,
+				05C37ECA1FF9316000125FA9 /* SectionDescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

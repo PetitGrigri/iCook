@@ -36,8 +36,6 @@ class RecetteScrollItemView: UIView {
         desciptionRecette.text = maRecette.description
         titreRecette.text = maRecette.nom
         imageRecette.image = maRecette.image
-        
-        
     }
     
     @IBAction func touchCuisiner(_ sender: Any) {
