@@ -43,7 +43,9 @@ class RecetteScrollItemView: UIView {
         print("L'utilisateur souhaite cuisiner une \(self.recette?.nom)")
         
         if (delegate != nil) {
-            delegate?.touch()
+            if let recette = self.recette {
+                delegate?.touch(recette: recette)
+            }
         }
     }
 }

@@ -11,12 +11,14 @@
 		054F9EDD1FD48BBD003149C2 /* CuisinerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9EDC1FD48BBD003149C2 /* CuisinerController.swift */; };
 		0598BEC01FD9B75B002570E3 /* Recette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598BEBF1FD9B75B002570E3 /* Recette.swift */; };
 		0598BEC41FD9B8DE002570E3 /* Etape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598BEC31FD9B8DE002570E3 /* Etape.swift */; };
+		05C19D891FF96AD1009988A1 /* RecetteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C19D881FF96AD1009988A1 /* RecetteFactory.swift */; };
 		05C37EC01FF67D3900125FA9 /* TouchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EBF1FF67D3900125FA9 /* TouchProtocol.swift */; };
 		05C37EC41FF9005800125FA9 /* RecetteDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */; };
 		05C37EC61FF900BD00125FA9 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC51FF900BD00125FA9 /* Ingredient.swift */; };
 		05C37EC81FF902A200125FA9 /* Ustensile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC71FF902A200125FA9 /* Ustensile.swift */; };
 		05C37ECA1FF9316000125FA9 /* SectionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC91FF9316000125FA9 /* SectionDescriptionView.swift */; };
 		05C37ECC1FF9319200125FA9 /* SectionDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C37ECB1FF9319200125FA9 /* SectionDescriptionView.xib */; };
+		05CCD3181FF94E3E004D2380 /* SectionWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCD3171FF94E3E004D2380 /* SectionWithImage.swift */; };
 		05DCC4171FD3574000A010D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC4161FD3574000A010D3 /* AppDelegate.swift */; };
 		05DCC41C1FD3574000A010D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC41A1FD3574000A010D3 /* Main.storyboard */; };
 		05DCC41E1FD3574000A010D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC41D1FD3574000A010D3 /* Assets.xcassets */; };
@@ -123,12 +125,14 @@
 		054F9EDC1FD48BBD003149C2 /* CuisinerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinerController.swift; sourceTree = "<group>"; };
 		0598BEBF1FD9B75B002570E3 /* Recette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recette.swift; sourceTree = "<group>"; };
 		0598BEC31FD9B8DE002570E3 /* Etape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etape.swift; sourceTree = "<group>"; };
+		05C19D881FF96AD1009988A1 /* RecetteFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetteFactory.swift; sourceTree = "<group>"; };
 		05C37EBF1FF67D3900125FA9 /* TouchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchProtocol.swift; sourceTree = "<group>"; };
 		05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetteDescriptionController.swift; sourceTree = "<group>"; };
 		05C37EC51FF900BD00125FA9 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		05C37EC71FF902A200125FA9 /* Ustensile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ustensile.swift; sourceTree = "<group>"; };
 		05C37EC91FF9316000125FA9 /* SectionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDescriptionView.swift; sourceTree = "<group>"; };
 		05C37ECB1FF9319200125FA9 /* SectionDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionDescriptionView.xib; sourceTree = "<group>"; };
+		05CCD3171FF94E3E004D2380 /* SectionWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionWithImage.swift; sourceTree = "<group>"; };
 		05DCC4131FD3574000A010D3 /* iCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DCC4161FD3574000A010D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05DCC41B1FD3574000A010D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -216,8 +220,17 @@
 				0598BEC31FD9B8DE002570E3 /* Etape.swift */,
 				05C37EC51FF900BD00125FA9 /* Ingredient.swift */,
 				05C37EC71FF902A200125FA9 /* Ustensile.swift */,
+				05CCD3171FF94E3E004D2380 /* SectionWithImage.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		05C19D871FF96A92009988A1 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				05C19D881FF96AD1009988A1 /* RecetteFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		05C37EBE1FF67D0C00125FA9 /* Protocol */ = {
@@ -254,6 +267,7 @@
 		05DCC4151FD3574000A010D3 /* iCook */ = {
 			isa = PBXGroup;
 			children = (
+				05C19D871FF96A92009988A1 /* Factory */,
 				05C37EBE1FF67D0C00125FA9 /* Protocol */,
 				0598BEC21FD9B84F002570E3 /* Model */,
 				0598BEC11FD9B808002570E3 /* View */,
@@ -522,10 +536,12 @@
 				E09491581FF2CEC100AC1E8D /* SKTEffects.swift in Sources */,
 				05C37EC01FF67D3900125FA9 /* TouchProtocol.swift in Sources */,
 				E094914E1FF2CEC100AC1E8D /* SKTTimingFunctions.swift in Sources */,
+				05CCD3181FF94E3E004D2380 /* SectionWithImage.swift in Sources */,
 				054F9EDB1FD4845E003149C2 /* ListeRecetteController.swift in Sources */,
 				0598BEC41FD9B8DE002570E3 /* Etape.swift in Sources */,
 				E09491561FF2CEC100AC1E8D /* CGPoint+Extensions.swift in Sources */,
 				054F9EDD1FD48BBD003149C2 /* CuisinerController.swift in Sources */,
+				05C19D891FF96AD1009988A1 /* RecetteFactory.swift in Sources */,
 				05C37EC41FF9005800125FA9 /* RecetteDescriptionController.swift in Sources */,
 				E09491521FF2CEC100AC1E8D /* SKAction+SpecialEffects.swift in Sources */,
 				05E5E5371FD8A4DB001863A4 /* RecetteScrollItemView.swift in Sources */,

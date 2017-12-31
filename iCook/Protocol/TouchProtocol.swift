@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TouchProtocol {
-    func touch()
+    func touch(recette:Recette)
 }

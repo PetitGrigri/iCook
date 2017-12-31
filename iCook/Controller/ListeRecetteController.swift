@@ -21,16 +21,10 @@ class ListeRecetteController : UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        listeRecettes.append(Recette(
-            nom: "Tarte au citron meringuée",
-            description: "La tarte au citron meringuée est une tarte au citron complétée par une meringue. C'est une tarte sucrée garnie de crème à base de citron. Elle ne comprend aucun fruit. La crème est un mélange d'œufs, de sucre, de jus de citron et de zeste de citron",
-            image: #imageLiteral(resourceName: "Slide1")))
-        listeRecettes.append(Recette(
-            nom: "Tiramisu (recette originale)",
-            description: "Le tiramisu est une pâtisserie et un dessert traditionnel de la cuisine italienne.",
-            image: #imageLiteral(resourceName: "Slide2")))
-       
-        self.tabBarItem = UITabBarItem(title: "Recette", image: #imageLiteral(resourceName: "Book"), selectedImage: #imageLiteral(resourceName: "Book"))
+        listeRecettes.append(RecetteFactory.createTiramisu())
+        listeRecettes.append(RecetteFactory.createTarteCitron())
+
+        //self.tabBarItem = UITabBarItem(title: "Recette", image: #imageLiteral(resourceName: "Book"), selectedImage: #imageLiteral(resourceName: "Book"))
 
     }
     
@@ -73,7 +67,17 @@ class ListeRecetteController : UIViewController {
 
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "ListeToDescription") {
+            guard
+                let vc = segue.destination as? RecetteDescriptionController,
+                let recette = sender as? Recette else{
+                return
+            }
+            vc.recette = recette
+        }
+    }
 }
 
 
@@ -82,10 +86,11 @@ extension ListeRecetteController : UIScrollViewDelegate {
 }
 
 extension ListeRecetteController : TouchProtocol {
-    func touch() {
+    func touch(recette: Recette) {
         print("touchProtocol lauched")
         //performSegue(withIdentifier: "ListeToRecette", sender: self)
-        performSegue(withIdentifier: "ListeToDescription", sender: self)
+        
+        performSegue(withIdentifier: "ListeToDescription", sender: recette)
 
     }
 }

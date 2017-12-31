@@ -1,5 +1,5 @@
 //
-//  Ustensile
+//  SectionWithImage.swift
 //  iCook
 //
 //  Created by Fabien on 31/12/2017.
@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
-class Ustensile {
+class SectionWithImage {
     var nom:String;
-    var quantite:Int;
-    
-    
-    public init(nom:String,  withQuantite quantite:Int) {
-        self.nom = nom
-        self.quantite = quantite
-    }
-}
+    var image:UIImage?;
 
+    
+    public init(nom:String,  withImage image:UIImage?) {
+        self.nom = nom
+        self.image = image
+    }
+    
+}

@@ -14,6 +14,9 @@ class Recette {
     var description:String
     var image:UIImage
     var etapes:[Etape] = [Etape]()
+    var ingredients:[Ingredient] =  [Ingredient]()
+    var ustensiles:[Ustensile] = [Ustensile]()
+    
     
     public init(nom:String, description:String, image:UIImage) {
         self.nom = nom
