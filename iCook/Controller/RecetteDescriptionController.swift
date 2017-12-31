@@ -44,6 +44,8 @@ class RecetteDescriptionController: UITableViewController  {
             return recette.ingredients.count
         } else if (section == 1){
             return recette.ustensiles.count
+        } else if (section == 2){
+            return 1
         }
         return 0
     }
@@ -56,7 +58,8 @@ class RecetteDescriptionController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
+        
         guard let recette = self.recette else {
             return cell
         }
@@ -67,10 +70,12 @@ class RecetteDescriptionController: UITableViewController  {
                 cell.detailTextLabel?.text = "\(recette.ingredients[indexPath.row].quantite) \((recette.ingredients[indexPath.row].unite))"
                 break
             case 1 :
+
                 cell.textLabel?.text = recette.ustensiles[indexPath.row].nom
                 cell.detailTextLabel?.text = String(recette.ustensiles[indexPath.row].quantite)
                 break
             case 2 :
+                cell = tableView.dequeueReusableCell(withIdentifier: "InformationsDiverses", for: indexPath)
                 
                 break
             default:
