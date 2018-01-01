@@ -25,12 +25,13 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycC-tS-t97">
                     <rect key="frame" x="60" y="14.5" width="307" height="21"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ycC-tS-t97" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="0I1-ll-i06"/>
                 <constraint firstItem="ycC-tS-t97" firstAttribute="leading" secondItem="ihY-5D-3h7" secondAttribute="trailing" constant="8" id="G6h-m3-wt8"/>

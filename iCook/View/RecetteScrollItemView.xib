@@ -27,7 +27,7 @@
                         </imageView>
                     </subviews>
                 </view>
-                <visualEffectView opaque="NO" clipsSubviews="YES" alpha="0.44999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZi-1c-MGk">
+                <visualEffectView opaque="NO" clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZi-1c-MGk">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cf1-ml-cPJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -42,6 +42,7 @@
                             <constraint firstItem="hPT-Tx-WW7" firstAttribute="top" secondItem="cf1-ml-cPJ" secondAttribute="top" id="BX6-jZ-YKq"/>
                         </constraints>
                     </view>
+                    <color key="backgroundColor" name="DarkBlue"/>
                     <constraints>
                         <constraint firstItem="hPT-Tx-WW7" firstAttribute="height" secondItem="jZi-1c-MGk" secondAttribute="height" id="7Zz-57-hNy"/>
                         <constraint firstItem="hPT-Tx-WW7" firstAttribute="width" secondItem="jZi-1c-MGk" secondAttribute="width" id="Sxg-5d-2oR"/>
@@ -64,7 +65,7 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUP-I8-upz">
                     <rect key="frame" x="16" y="248" width="343" height="155.5"/>
-                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -106,7 +107,7 @@
     </objects>
     <resources>
         <namedColor name="DarkBlue">
-            <color red="0.0" green="0.20000000298023224" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.22699999809265137" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
