@@ -16,11 +16,16 @@ class Recette {
     var etapes:[Etape] = [Etape]()
     var ingredients:[Ingredient] =  [Ingredient]()
     var ustensiles:[Ustensile] = [Ustensile]()
+    var prix:String
+    var personnes:Int
+    var duree:Int
     
-    
-    public init(nom:String, description:String, image:UIImage) {
+    public init(nom:String, description:String, image:UIImage, prix:String, personnes:Int, duree:Int) {
         self.nom = nom
         self.description = description
         self.image = image
+        self.prix = prix
+        self.personnes = personnes
+        self.duree = duree
     }
 }

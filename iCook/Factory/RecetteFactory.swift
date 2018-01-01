@@ -15,7 +15,11 @@ class RecetteFactory {
         let recette = Recette(
             nom: "Tiramisu (recette originale)",
             description: "Le tiramisu est une pâtisserie et un dessert traditionnel de la cuisine italienne.",
-            image: #imageLiteral(resourceName: "Slide2"))
+            image: #imageLiteral(resourceName: "Slide2"),
+            prix: "Bon marché",
+            personnes:8,
+            duree:15
+            )
 
         recette.ingredients = [
             Ingredient(nom: "Oeufs", withQuantite: 3, withUnite: ""),
@@ -42,7 +46,10 @@ class RecetteFactory {
         let recette = Recette(
             nom: "Tarte au citron meringuée",
             description: "La tarte au citron meringuée est une tarte au citron complétée par une meringue. C'est une tarte sucrée garnie de crème à base de citron. Elle ne comprend aucun fruit. La crème est un mélange d'œufs, de sucre, de jus de citron et de zeste de citron",
-            image: #imageLiteral(resourceName: "Slide1"))
+            image: #imageLiteral(resourceName: "Slide1"),
+            prix: "Bon marché",
+            personnes:6,
+            duree:55)
         
         return recette
     }

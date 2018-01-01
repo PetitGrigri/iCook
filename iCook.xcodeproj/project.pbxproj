@@ -12,6 +12,7 @@
 		0598BEC01FD9B75B002570E3 /* Recette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598BEBF1FD9B75B002570E3 /* Recette.swift */; };
 		0598BEC41FD9B8DE002570E3 /* Etape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598BEC31FD9B8DE002570E3 /* Etape.swift */; };
 		05C19D891FF96AD1009988A1 /* RecetteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C19D881FF96AD1009988A1 /* RecetteFactory.swift */; };
+		05C19D8B1FFA4E34009988A1 /* InformationsDiversesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C19D8A1FFA4E34009988A1 /* InformationsDiversesViewCell.swift */; };
 		05C37EC01FF67D3900125FA9 /* TouchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EBF1FF67D3900125FA9 /* TouchProtocol.swift */; };
 		05C37EC41FF9005800125FA9 /* RecetteDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */; };
 		05C37EC61FF900BD00125FA9 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C37EC51FF900BD00125FA9 /* Ingredient.swift */; };
@@ -126,6 +127,7 @@
 		0598BEBF1FD9B75B002570E3 /* Recette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recette.swift; sourceTree = "<group>"; };
 		0598BEC31FD9B8DE002570E3 /* Etape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Etape.swift; sourceTree = "<group>"; };
 		05C19D881FF96AD1009988A1 /* RecetteFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetteFactory.swift; sourceTree = "<group>"; };
+		05C19D8A1FFA4E34009988A1 /* InformationsDiversesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsDiversesViewCell.swift; sourceTree = "<group>"; };
 		05C37EBF1FF67D3900125FA9 /* TouchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchProtocol.swift; sourceTree = "<group>"; };
 		05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecetteDescriptionController.swift; sourceTree = "<group>"; };
 		05C37EC51FF900BD00125FA9 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				05E5E5361FD8A4DB001863A4 /* RecetteScrollItemView.swift */,
 				05C37ECB1FF9319200125FA9 /* SectionDescriptionView.xib */,
 				05C37EC91FF9316000125FA9 /* SectionDescriptionView.swift */,
+				05C19D8A1FFA4E34009988A1 /* InformationsDiversesViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				E094914C1FF2CEC100AC1E8D /* Int+Extensions.swift in Sources */,
 				E094915A1FF2CEC100AC1E8D /* SKTAudio.swift in Sources */,
 				E094914A1FF2CEC100AC1E8D /* CGVector+Extensions.swift in Sources */,
+				05C19D8B1FFA4E34009988A1 /* InformationsDiversesViewCell.swift in Sources */,
 				0598BEC01FD9B75B002570E3 /* Recette.swift in Sources */,
 				05C37ECA1FF9316000125FA9 /* SectionDescriptionView.swift in Sources */,
 			);

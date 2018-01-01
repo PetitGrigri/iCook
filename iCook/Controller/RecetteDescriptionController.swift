@@ -15,7 +15,7 @@ class RecetteDescriptionController: UITableViewController  {
     let sections:[SectionWithImage] = [
         SectionWithImage(nom: "Ingrédients", withImage: #imageLiteral(resourceName: "ingredients")),
         SectionWithImage(nom: "Ustensiles", withImage: #imageLiteral(resourceName: "ustensiles")),
-        SectionWithImage(nom: "Détails", withImage: nil),
+        SectionWithImage(nom: "Informations complémentaires", withImage: nil),
     ]
 
     
@@ -58,24 +58,26 @@ class RecetteDescriptionController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
-        
-        guard let recette = self.recette else {
-            return cell
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
+
         switch (indexPath.section) {
             case 0 :
-                cell.textLabel?.text = recette.ingredients[indexPath.row].nom
-                cell.detailTextLabel?.text = "\(recette.ingredients[indexPath.row].quantite) \((recette.ingredients[indexPath.row].unite))"
+                cell.textLabel?.text = recette!.ingredients[indexPath.row].nom
+                cell.detailTextLabel?.text = "\(recette!.ingredients[indexPath.row].quantite) \((recette!.ingredients[indexPath.row].unite))"
                 break
             case 1 :
 
-                cell.textLabel?.text = recette.ustensiles[indexPath.row].nom
-                cell.detailTextLabel?.text = String(recette.ustensiles[indexPath.row].quantite)
+                cell.textLabel?.text = recette!.ustensiles[indexPath.row].nom
+                cell.detailTextLabel?.text = String(recette!.ustensiles[indexPath.row].quantite)
                 break
             case 2 :
-                cell = tableView.dequeueReusableCell(withIdentifier: "InformationsDiverses", for: indexPath)
+                if let cellInformations = tableView.dequeueReusableCell(withIdentifier: "InformationsDiverses", for: indexPath) as? InformationsDiversesViewCell {
+                    cellInformations.prix.text = self.recette!.prix
+                    cellInformations.personnes.text = String(self.recette!.personnes)
+                    cellInformations.duree.text = "\(self.recette!.duree) min"
+                    return cellInformations
+                }
+                
                 
                 break
             default:
@@ -104,7 +106,7 @@ class RecetteDescriptionController: UITableViewController  {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 50
     }
     /*
     // Override to support conditional editing of the table view.
