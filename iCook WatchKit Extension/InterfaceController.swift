@@ -15,6 +15,8 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var etapeNum: WKInterfaceLabel!
     @IBOutlet var descriptionEtape: WKInterfaceLabel!
     
+    var etapeCourante:Int = 0
+    
     override func awake(withContext context: Any?) {
         
         super.awake(withContext: context)
@@ -45,7 +47,12 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func touchNextButton() {
         print("//TODO")
+        let session = WCSession.default
+        guard session.isReachable else { return }
         
+        session.sendMessage(["prochaine_etape":true], replyHandler: nil) { (error) in
+            print(error)
+        }
     }
     
 }

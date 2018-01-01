@@ -18,11 +18,14 @@ class CuisinerController : UIViewController
     @IBOutlet weak var etapeSuivanteButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var recette:Recette?
-    var numeroEtape:Int
+    var recette:Recette? {
+        didSet {
+            self.numeroEtape = -1
+        }
+    }
+    var numeroEtape:Int = -1
     
     required init?(coder aDecoder: NSCoder) {
-        self.numeroEtape = 0
         super.init(coder: aDecoder)
     }
     
@@ -38,27 +41,38 @@ class CuisinerController : UIViewController
         etapeSuivante()
     }
 
+    
     @IBAction func touchEtapeSuivante(_ sender: Any) {
         etapeSuivante()
     }
     
+    func afficherEtape(numeroEtape:Int) {
+        //TODO
+    }
+    
     //Fonction permettant de passer à l'étape suivante
     func etapeSuivante() {
-        var hasWatchkit = false
         
+        numeroEtape = numeroEtape + 1
+        
+        //si il n'y pas de recette, inutile de continuer
+        guard let recette = self.recette else { return }
+        
+        var hasWatchkit = false
         let session = WCSession.default
         
         //on regarde si la montre est appairée
         if (session.isPaired && session.isWatchAppInstalled) {
             hasWatchkit = true
         }
-        
-        guard let recette = self.recette else { return }
 
         if self.numeroEtape < recette.etapes.count {
-            numeroEtapeLabel.text = String(recette.etapes[numeroEtape].numeroEtape)
-            descriptionLabel.text = recette.etapes[numeroEtape].description
             
+            DispatchQueue.main.async {
+                self.numeroEtapeLabel.text = String(recette.etapes[self.numeroEtape].numeroEtape)
+                self.descriptionLabel.text = recette.etapes[self.numeroEtape].description
+            }
+
             if hasWatchkit == true {
                 print("transmission à la montre")
                 session.transferUserInfo([
@@ -71,12 +85,10 @@ class CuisinerController : UIViewController
             }
         } else {
             print("Terminé")
-            etapeSuivanteButton.titleLabel?.text = "Terminé"
+            etapeSuivanteButton.setTitle("Terminé", for: .normal)
             descriptionLabel.text = ""
         }
-        numeroEtape = numeroEtape + 1
     }
-    
 }
 
 
@@ -96,7 +108,16 @@ extension CuisinerController:WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("didReceiveMessage")
+        
+        print("didReceiveMessage : \n \(message)")
+        
+        if let prochaineEtape = message["prochaine_etape"] as? Bool {
+            if prochaineEtape == true {
+                etapeSuivante()
+            }
+        }
+        
+        
     }
     
     
