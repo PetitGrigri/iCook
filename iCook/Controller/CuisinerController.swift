@@ -84,16 +84,21 @@ class CuisinerController : UIViewController
 
 extension CuisinerController:WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
+        print("activationDidCompleteWith")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
-        
+        print("sessionDidBecomeInactive")
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
-        
+        print("sessionDidDeactivate")
     }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("didReceiveMessage")
+    }
+    
     
     
 }

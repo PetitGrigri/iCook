@@ -18,10 +18,14 @@
                         <label width="1" alignment="left" text="Label" textAlignment="left" numberOfLines="0" id="VZd-Ww-DUV"/>
                         <group width="1" alignment="left" id="cfO-Tc-T6F">
                             <items>
-                                <button width="0.5" alignment="left" title="&lt;" id="4qQ-cU-12o"/>
+                                <button width="0.5" alignment="left" title="⌚︎" id="4qQ-cU-12o">
+                                    <connections>
+                                        <action selector="touchTimerButton" destination="AgC-eL-Hgc" id="M8K-6t-dAV"/>
+                                    </connections>
+                                </button>
                                 <button width="0.5" alignment="left" title="&gt;" id="IQh-tv-XPt">
                                     <connections>
-                                        <action selector="nextButton" destination="AgC-eL-Hgc" id="cNp-Ps-Cyg"/>
+                                        <action selector="touchNextButton" destination="AgC-eL-Hgc" id="Lqy-Rz-rye"/>
                                     </connections>
                                 </button>
                             </items>

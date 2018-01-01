@@ -18,7 +18,7 @@ class InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         
         super.awake(withContext: context)
-        print("tentative d'activer la session")
+        print("tentative d'activer la session (Watch)")
         if WCSession.isSupported() {
             print("OK")
             let session = WCSession.default
@@ -38,10 +38,16 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-    
-    @IBAction func nextButton() {
+
+    @IBAction func touchTimerButton() {
         pushController(withName: "ProgressRing", context: nil)
     }
+    
+    @IBAction func touchNextButton() {
+        print("//TODO")
+        
+    }
+    
 }
 
 

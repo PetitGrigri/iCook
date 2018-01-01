@@ -327,7 +327,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="MnE-qp-gm8" secondAttribute="bottom" constant="8" id="iKs-bF-wBY"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="TransparentWhite"/>
+                                        <color key="backgroundColor" name="TransparentWhite50"/>
                                         <connections>
                                             <outlet property="duree" destination="4co-70-W6A" id="Xdj-H2-zq7"/>
                                             <outlet property="personnes" destination="gSz-fD-PO8" id="U9F-Fy-tyP"/>
@@ -449,9 +449,6 @@
         </namedColor>
         <namedColor name="DarkBlue">
             <color red="0.0" green="0.22699999809265137" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TransparentWhite">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TransparentWhite50">
             <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
