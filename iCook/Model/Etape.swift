@@ -10,13 +10,13 @@ import Foundation
 
 
 class Etape {
-    var nom:String;
+    var numeroEtape:Int;
     var description:String;
     var duration:Int;
     
     
-    public init(nom:String, andDescription description:String, andDuration duration:Int) {
-        self.nom = nom
+    public init(numeroEtape:Int, andDescription description:String, andDuration duration:Int) {
+        self.numeroEtape = numeroEtape
         self.description = description
         self.duration = duration
     }

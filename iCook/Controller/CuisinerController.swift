@@ -13,77 +13,69 @@ import WatchConnectivity
 
 class CuisinerController : UIViewController
 {
-    let etapes = [
-        "Mélanger le sucre, la farine, la levure et les oeufs.",
-        "Faire fondre le beurre.",
-        "Mélanger le beurre fondu avec le mélange farine-sucre-oeuf-levure.",
-        "Mettre au four à 175°C (th6) pendant 40 à 45 minutes."
-    ]
+
+    @IBOutlet weak var numeroEtapeLabel: UILabel!
+    @IBOutlet weak var etapeSuivanteButton: UIButton!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
-    var numeroEtape:Int = 0
-    
+    var recette:Recette?
+    var numeroEtape:Int
     
     required init?(coder aDecoder: NSCoder) {
+        self.numeroEtape = 0
         super.init(coder: aDecoder)
-        
-        self.tabBarItem = UITabBarItem(title: "Recette", image: #imageLiteral(resourceName: "cooking"), selectedImage: #imageLiteral(resourceName: "cooking"))
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Activation de la connectivity avec WatchConnectivity
-        print("tentative de connexion")
         if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = self
             session.activate()
-            print("ok")
-            /*
-             if WCSession.default.isPaired && WCSession.default.isWatchAppInstalled {
-             
-             }*/
-            
+            print("WCSession is supported")
         }
-        // Do any additional setup after loading the view, typically from a nib.
+        etapeSuivante()
     }
 
+    @IBAction func touchEtapeSuivante(_ sender: Any) {
+        etapeSuivante()
+    }
     
-    @IBAction func touch(_ sender: Any) {
-        
-        let session = WCSession.default
+    //Fonction permettant de passer à l'étape suivante
+    func etapeSuivante() {
         var hasWatchkit = false
         
+        let session = WCSession.default
+        
+        //on regarde si la montre est appairée
         if (session.isPaired && session.isWatchAppInstalled) {
             hasWatchkit = true
         }
         
-        switch numeroEtape {
+        guard let recette = self.recette else { return }
+
+        if self.numeroEtape < recette.etapes.count {
+            numeroEtapeLabel.text = String(recette.etapes[numeroEtape].numeroEtape)
+            descriptionLabel.text = recette.etapes[numeroEtape].description
             
-        case 4:
-            print("Terminé")
-            break
-        default:
-            print("Etape \(numeroEtape) :\n \(etapes[numeroEtape])")
-            
-            if hasWatchkit == true{
+            if hasWatchkit == true {
                 print("transmission à la montre")
                 session.transferUserInfo([
-                    "etape":        numeroEtape,
-                    "description":  etapes[numeroEtape]
+                    "etape":        recette.etapes[numeroEtape].numeroEtape,
+                    "description":  recette.etapes[numeroEtape].description,
+                    "temps":        recette.etapes[numeroEtape].duration,
                     ])
             } else {
-                print("PAS de transmission à la montre")
+                print("transmission à la montre")
             }
-            
-            numeroEtape = numeroEtape + 1
+        } else {
+            print("Terminé")
+            etapeSuivanteButton.titleLabel?.text = "Terminé"
+            descriptionLabel.text = ""
         }
-        
-        
-        
+        numeroEtape = numeroEtape + 1
     }
-    
     
 }
 

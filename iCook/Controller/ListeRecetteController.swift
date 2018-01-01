@@ -68,14 +68,13 @@ class ListeRecetteController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if (segue.identifier == "ListeToDescription") {
             guard
-                let vc = segue.destination as? RecetteDescriptionController,
+                let destinationController = segue.destination as? RecetteDescriptionController,
                 let recette = sender as? Recette else{
                 return
             }
-            vc.recette = recette
+            destinationController.recette = recette
         }
     }
 }
@@ -87,9 +86,6 @@ extension ListeRecetteController : UIScrollViewDelegate {
 
 extension ListeRecetteController : TouchProtocol {
     func touch(recette: Recette) {
-        print("touchProtocol lauched")
-        //performSegue(withIdentifier: "ListeToRecette", sender: self)
-        
         performSegue(withIdentifier: "ListeToDescription", sender: recette)
 
     }

@@ -318,8 +318,8 @@
 		05E5E53A1FD8A6EF001863A4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */,
 				054F9EDA1FD4845D003149C2 /* ListeRecetteController.swift */,
+				05C37EC31FF9005800125FA9 /* RecetteDescriptionController.swift */,
 				054F9EDC1FD48BBD003149C2 /* CuisinerController.swift */,
 			);
 			path = Controller;

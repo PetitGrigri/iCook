@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="TransparentWhite80"/>
             <constraints>
                 <constraint firstItem="ycC-tS-t97" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="0I1-ll-i06"/>
                 <constraint firstItem="ycC-tS-t97" firstAttribute="leading" secondItem="ihY-5D-3h7" secondAttribute="trailing" constant="8" id="G6h-m3-wt8"/>
@@ -58,5 +59,8 @@
     </objects>
     <resources>
         <image name="ingredients" width="128" height="128"/>
+        <namedColor name="TransparentWhite80">
+            <color red="1" green="1" blue="1" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -28,13 +28,22 @@ class RecetteDescriptionController: UIViewController {
         tableau.delegate = self
         tableau.dataSource = self
         imageRecette.image = recette?.image
+        self.title = recette?.nom
         
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "DescriptionToCuisiner") {
+            if let destinationController = segue.destination as? CuisinerController {
+                destinationController.recette = self.recette
+            }
+            
+        }
     }
 
 }
@@ -97,9 +106,6 @@ extension RecetteDescriptionController:UITableViewDelegate, UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        print("viewForHeaderInSection : \(section)")
-        
         if let sectionRecette = Bundle.main.loadNibNamed("SectionDescriptionView", owner: self, options: nil)?.first as? SectionDescriptionView {
             
             //enregistrement de la recette dans la vue

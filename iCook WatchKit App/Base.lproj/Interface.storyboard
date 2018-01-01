@@ -15,7 +15,7 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="iCook_WatchKit_App" customModuleProvider="target">
                     <items>
                         <label width="136" alignment="left" text="Label" textAlignment="center" id="Xbu-Tw-zoV"/>
-                        <label width="136" height="91" alignment="left" text="Label" textAlignment="center" numberOfLines="0" id="VZd-Ww-DUV"/>
+                        <label width="1" alignment="left" text="Label" textAlignment="left" numberOfLines="0" id="VZd-Ww-DUV"/>
                         <group width="1" alignment="left" id="cfO-Tc-T6F">
                             <items>
                                 <button width="0.5" alignment="left" title="&lt;" id="4qQ-cU-12o"/>

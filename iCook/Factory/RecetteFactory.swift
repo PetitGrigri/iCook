@@ -37,6 +37,17 @@ class RecetteFactory {
             Ustensile(nom: "Couvercle", withQuantite: 1),
             Ustensile(nom: "Réfrigérateur", withQuantite: 1)
         ]
+        
+        recette.etapes = [
+            Etape(numeroEtape: 1, andDescription: "Séparer les blancs des jaunes d'oeufs. ", andDuration: 1),
+            Etape(numeroEtape: 2, andDescription: "Mélanger les jaunes avec le sucre roux et le sucre vanillé.", andDuration: 2),
+            Etape(numeroEtape: 3, andDescription: "Ajouter le mascarpone au fouet. ", andDuration: 3),
+            Etape(numeroEtape: 4, andDescription: "Monter les blancs en neige et les incorporer délicatement à la spatule au mélange précédent. Réserver.", andDuration: 4),
+            Etape(numeroEtape: 5, andDescription: "Mouiller les biscuits dans le café rapidement avant d'en tapisser le fond du plat.", andDuration: 2),
+            Etape(numeroEtape: 6, andDescription: "Recouvrir d'une couche de crème au mascarpone puis répéter l'opération en alternant couche de biscuits et couche de crème en terminant par cette dernière.", andDuration: 2),
+            Etape(numeroEtape: 7, andDescription: "Saupoudrer de cacao.", andDuration: 1),
+            Etape(numeroEtape: 8, andDescription: "Mettre au réfrigérateur 4 heures minimum puis déguster frais.", andDuration: 240)
+        ]
         return recette
         
     }

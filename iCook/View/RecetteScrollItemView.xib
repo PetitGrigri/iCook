@@ -49,24 +49,30 @@
                     </constraints>
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiX-7Z-jci">
-                    <rect key="frame" x="8" y="523" width="359" height="40"/>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiX-7Z-jci">
+                    <rect key="frame" x="8" y="545" width="359" height="50"/>
                     <color key="backgroundColor" name="DarkBlue"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="I4y-Mf-hQi"/>
+                        <constraint firstAttribute="height" constant="50" id="I4y-Mf-hQi"/>
                     </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                    <state key="normal" title="Cuisiner">
+                    <state key="normal" title="Préparer">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="touchCuisiner:" destination="iN0-l3-epB" eventType="touchUpInside" id="TQq-Sa-ygf"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUP-I8-upz">
-                    <rect key="frame" x="16" y="248" width="343" height="155.5"/>
+                    <rect key="frame" x="16" y="248" width="343" height="264"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -87,7 +93,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZfY-hh-soG" secondAttribute="trailing" constant="8" id="87p-2h-8mN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uiX-7Z-jci" secondAttribute="trailing" constant="8" id="8ed-TX-HOP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UUP-I8-upz" secondAttribute="trailing" constant="16" id="9on-AX-OQb"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uiX-7Z-jci" secondAttribute="bottom" constant="104" id="EtK-af-4ab"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uiX-7Z-jci" secondAttribute="bottom" constant="72" id="EtK-af-4ab"/>
                 <constraint firstItem="hPT-Tx-WW7" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="T8C-JQ-gTn"/>
                 <constraint firstItem="jZi-1c-MGk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Uno-UN-Aq9"/>
                 <constraint firstItem="jZi-1c-MGk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WZ1-LB-kLg"/>
