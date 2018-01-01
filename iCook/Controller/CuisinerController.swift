@@ -20,10 +20,10 @@ class CuisinerController : UIViewController
     
     var recette:Recette? {
         didSet {
-            self.numeroEtape = -1
+            self.numeroEtape = 0
         }
     }
-    var numeroEtape:Int = -1
+    var numeroEtape:Int = 0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,7 +38,7 @@ class CuisinerController : UIViewController
             session.activate()
             print("WCSession is supported")
         }
-        etapeSuivante()
+        afficherEtape(numeroEtape:0)
     }
 
     
@@ -47,50 +47,72 @@ class CuisinerController : UIViewController
     }
     
     func afficherEtape(numeroEtape:Int) {
-        //TODO
-    }
-    
-    //Fonction permettant de passer à l'étape suivante
-    func etapeSuivante() {
-        
-        numeroEtape = numeroEtape + 1
+        //mémorisation de l'étape en cours
+        self.numeroEtape = numeroEtape
         
         //si il n'y pas de recette, inutile de continuer
         guard let recette = self.recette else { return }
         
-        var hasWatchkit = false
-        let session = WCSession.default
+        //initialisation des variables qui seront utilisées
+        var etapeAffichee:Int           = recette.etapes.count
+        var descriptionAffichee:String  = "Bon appétit"
+        var tempsAffiche:Int            = 0
+        let session                     = WCSession.default
+        var hasWatchkit                 = false
+        var recetteTerminee             = true
         
         //on regarde si la montre est appairée
         if (session.isPaired && session.isWatchAppInstalled) {
             hasWatchkit = true
         }
-
-        if self.numeroEtape < recette.etapes.count {
-            
-            DispatchQueue.main.async {
-                self.numeroEtapeLabel.text = String(recette.etapes[self.numeroEtape].numeroEtape)
-                self.descriptionLabel.text = recette.etapes[self.numeroEtape].description
+        
+        //si l'étape existe
+        if numeroEtape < recette.etapes.count && numeroEtape >= 0 {
+            etapeAffichee       = recette.etapes[numeroEtape].numeroEtape
+            descriptionAffichee = recette.etapes[numeroEtape].description
+            tempsAffiche        = recette.etapes[numeroEtape].duration
+            recetteTerminee     = false
+        }
+        
+        DispatchQueue.main.async {
+            self.numeroEtapeLabel.text = String(etapeAffichee)
+            self.descriptionLabel.text = descriptionAffichee
+            if recetteTerminee {
+                self.etapeSuivanteButton.setTitle("Terminé", for: .normal)
             }
-
-            if hasWatchkit == true {
-                print("transmission à la montre")
-                session.transferUserInfo([
-                    "etape":        recette.etapes[numeroEtape].numeroEtape,
-                    "description":  recette.etapes[numeroEtape].description,
-                    "temps":        recette.etapes[numeroEtape].duration,
-                    ])
-            } else {
-                print("transmission à la montre")
-            }
-        } else {
-            print("Terminé")
-            etapeSuivanteButton.setTitle("Terminé", for: .normal)
-            descriptionLabel.text = ""
+        }
+        
+        if hasWatchkit == true {
+            session.transferUserInfo([
+                "etape":        etapeAffichee,
+                "description":  descriptionAffichee,
+                "duree":        tempsAffiche
+                ])
         }
     }
+    
+    //Fonction permettant de passer à l'étape suivante
+    func etapeSuivante()
+    {
+        //si il n'y pas de recette, inutile de continuer
+        guard let recette = self.recette else { return }
+        
+        //vérification de la cohérence de l'incrémentation
+        if numeroEtape <= recette.etapes.count {
+            self.numeroEtape+=1
+        }
+        afficherEtape(numeroEtape:self.numeroEtape)
+    }
+    
+    //Fonction permettant de passer à l'étape suivante
+    func etapePrecedente() {
+        if numeroEtape > 0 {
+            self.numeroEtape-=1
+        }
+        
+        afficherEtape(numeroEtape:self.numeroEtape)
+    }
 }
-
 
 
 
@@ -111,17 +133,15 @@ extension CuisinerController:WCSessionDelegate {
         
         print("didReceiveMessage : \n \(message)")
         
-        if let prochaineEtape = message["prochaine_etape"] as? Bool {
-            if prochaineEtape == true {
+        if let action = message["action"] as? String {
+            if action == "prochaine_etape" {
                 etapeSuivante()
             }
+            else if action == "etape_courante" {
+                afficherEtape(numeroEtape: self.numeroEtape)
+            }
         }
-        
-        
     }
-    
-    
-    
 }
 
 

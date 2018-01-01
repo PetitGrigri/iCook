@@ -12,20 +12,30 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
 
-    @IBOutlet var etapeNum: WKInterfaceLabel!
-    @IBOutlet var descriptionEtape: WKInterfaceLabel!
+    @IBOutlet var etapeNumLabel: WKInterfaceLabel!
+    @IBOutlet var descriptionEtapeLabel: WKInterfaceLabel!
+    @IBOutlet var timerButton: WKInterfaceButton!
+    @IBOutlet var nextButton: WKInterfaceButton!
+    @IBOutlet var logoImage: WKInterfaceImage!
     
     var etapeCourante:Int = 0
     
     override func awake(withContext context: Any?) {
         
         super.awake(withContext: context)
-        print("tentative d'activer la session (Watch)")
+        
+        self.timerButton.setHidden(true)
+        self.nextButton.setHidden(true)
+        self.etapeNumLabel.setHidden(true)
+        self.descriptionEtapeLabel.setHidden(true)
+        self.logoImage.setHidden(false)
+        
         if WCSession.isSupported() {
-            print("OK")
+            print("supported")
             let session = WCSession.default
             session.delegate = self
             session.activate()
+            raffraichir()
         }
         
         // Configure interface objects here.
@@ -46,15 +56,24 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func touchNextButton() {
-        print("//TODO")
         let session = WCSession.default
         guard session.isReachable else { return }
         
-        session.sendMessage(["prochaine_etape":true], replyHandler: nil) { (error) in
+        session.sendMessage(["action":"prochaine_etape"], replyHandler: nil) { (error) in
             print(error)
         }
     }
     
+    func raffraichir() {
+        let session = WCSession.default
+        guard session.isReachable else { return }
+        
+        
+        print("tentative de raffraichissement")
+        session.sendMessage(["action":"etape_courante"], replyHandler: nil) { (error) in
+            print(error)
+        }
+    }
 }
 
 
@@ -63,33 +82,29 @@ class InterfaceController: WKInterfaceController {
 
 extension InterfaceController:WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print(activationState)
+        print("activationDidCompleteWith : \(activationState)")
     }
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
-        print("tentative de reception")
-        print(userInfo)
-        
-        guard let etape = userInfo["etape"] as? Int else {
-            print("retour")
-            return
-        }
-        print("tentative 2 de reception")
-        
-        guard let desc = userInfo["description"] as? String else {
-            print("retour")
+
+        guard   let etape   = userInfo["etape"] as? Int,
+                let desc    = userInfo["description"] as? String,
+                let duree   = userInfo["duree"] as? Int else {
             return
         }
         
-        let etapeTxt = "Étape : \(etape)"
+        self.timerButton.setHidden(false)
+        self.nextButton.setHidden(false)
+        self.etapeNumLabel.setHidden(false)
+        self.descriptionEtapeLabel.setHidden(false)
+        self.logoImage.setHidden(true)
         
-        self.etapeNum.setText(String(etapeTxt))
-        self.descriptionEtape.setText(desc)
+        self.etapeNumLabel.setText("Étape : \(etape)")
+        self.descriptionEtapeLabel.setText(desc)
         
     }
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
        
        // self.image.setImageData(data)
     }
-    
 }
 

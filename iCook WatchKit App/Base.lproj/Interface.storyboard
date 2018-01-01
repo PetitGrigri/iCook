@@ -16,14 +16,15 @@
                     <items>
                         <label width="136" alignment="left" text="Label" textAlignment="center" id="Xbu-Tw-zoV"/>
                         <label width="1" alignment="left" text="Label" textAlignment="left" numberOfLines="0" id="VZd-Ww-DUV"/>
-                        <group width="1" alignment="left" id="cfO-Tc-T6F">
+                        <imageView alignment="center" verticalAlignment="center" image="LogoBlanc" id="Ypt-bt-7q6"/>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="cfO-Tc-T6F">
                             <items>
                                 <button width="0.5" alignment="left" title="⌚︎" id="4qQ-cU-12o">
                                     <connections>
                                         <action selector="touchTimerButton" destination="AgC-eL-Hgc" id="M8K-6t-dAV"/>
                                     </connections>
                                 </button>
-                                <button width="0.5" alignment="left" title="&gt;" id="IQh-tv-XPt">
+                                <button width="0.5" alignment="right" title="&gt;" id="IQh-tv-XPt">
                                     <connections>
                                         <action selector="touchNextButton" destination="AgC-eL-Hgc" id="Lqy-Rz-rye"/>
                                     </connections>
@@ -32,8 +33,11 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="descriptionEtape" destination="VZd-Ww-DUV" id="UpK-gg-nNn"/>
-                        <outlet property="etapeNum" destination="Xbu-Tw-zoV" id="oZt-8g-S4D"/>
+                        <outlet property="descriptionEtapeLabel" destination="VZd-Ww-DUV" id="UpK-gg-nNn"/>
+                        <outlet property="etapeNumLabel" destination="Xbu-Tw-zoV" id="oZt-8g-S4D"/>
+                        <outlet property="logoImage" destination="Ypt-bt-7q6" id="dJ3-zr-UuV"/>
+                        <outlet property="nextButton" destination="IQh-tv-XPt" id="L21-XZ-gcA"/>
+                        <outlet property="timerButton" destination="4qQ-cU-12o" id="tFd-nv-daw"/>
                     </connections>
                 </controller>
             </objects>
