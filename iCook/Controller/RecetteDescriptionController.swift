@@ -42,7 +42,6 @@ class RecetteDescriptionController: UIViewController {
             if let destinationController = segue.destination as? CuisinerController {
                 destinationController.recette = self.recette
             }
-            
         }
     }
 

@@ -24,6 +24,7 @@ class CuisinerController : UIViewController
         }
     }
     var numeroEtape:Int = 0
+    let section = SectionWithImage(nom: "Liste des étapes", withImage: #imageLiteral(resourceName: "cooking"))
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -225,6 +226,28 @@ extension CuisinerController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.afficherEtape(numeroEtape: indexPath.row)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let sectionRecette = Bundle.main.loadNibNamed("SectionDescriptionView", owner: self, options: nil)?.first as? SectionDescriptionView {
+            
+            //enregistrement de la recette dans la vue
+            sectionRecette.titre.text = self.section.nom
+            sectionRecette.image.image = self.section.image
+            
+            return sectionRecette
+        }
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
 }
 
