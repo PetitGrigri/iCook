@@ -61,7 +61,7 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLR-gu-Bi1" userLabel="Numéro Etape">
-                                <rect key="frame" x="123" y="168" width="128" height="128"/>
+                                <rect key="frame" x="123" y="84" width="128" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="étape" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoZ-Pa-6Fq">
                                         <rect key="frame" x="46" y="19.5" width="37" height="17"/>
@@ -92,20 +92,108 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fi7-Y4-CSM">
-                                <rect key="frame" x="8" y="304" width="359" height="264"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5e-DB-2dJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1V0-pv-ki0" userLabel="Liste Etape Tableau">
+                                <rect key="frame" x="8" y="220" width="359" height="381"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EtapeNormale" rowHeight="50" id="3eO-mS-LCZ" userLabel="Etape normale" customClass="EtapeNormaleViewCell" customModule="iCook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3eO-mS-LCZ" id="sZW-QL-Jh6">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eJ-bJ-drz" userLabel="Numero Etape">
+                                                    <rect key="frame" x="16" y="8" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="ObK-XJ-nGu"/>
+                                                        <constraint firstAttribute="height" constant="32" id="VzM-yI-F65"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une description qui déchire et qui blablabla" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIX-f3-zKI" userLabel="Description Etape">
+                                                    <rect key="frame" x="56" y="8" width="287" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="EIX-f3-zKI" firstAttribute="top" secondItem="sZW-QL-Jh6" secondAttribute="top" constant="8" id="ROb-Z7-mgk"/>
+                                                <constraint firstAttribute="trailing" secondItem="EIX-f3-zKI" secondAttribute="trailing" constant="16" id="anc-ov-638"/>
+                                                <constraint firstItem="9eJ-bJ-drz" firstAttribute="top" secondItem="sZW-QL-Jh6" secondAttribute="top" constant="8" id="cGU-J4-3UV"/>
+                                                <constraint firstAttribute="bottom" secondItem="EIX-f3-zKI" secondAttribute="bottom" constant="8" id="f2W-PL-w6v"/>
+                                                <constraint firstItem="9eJ-bJ-drz" firstAttribute="leading" secondItem="sZW-QL-Jh6" secondAttribute="leading" constant="16" id="wZ3-KH-NOd"/>
+                                                <constraint firstItem="EIX-f3-zKI" firstAttribute="leading" secondItem="9eJ-bJ-drz" secondAttribute="trailing" constant="8" id="zEr-1l-l4j"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="TransparentWhite50"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="EIX-f3-zKI" id="V9t-GC-sXP"/>
+                                            <outlet property="etapeLabel" destination="9eJ-bJ-drz" id="ZXJ-qd-Jhp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EtapeEnCours" id="14e-7m-jF3" userLabel="Etape en cours" customClass="EtapeEnCoursViewCell" customModule="iCook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="78" width="359" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="14e-7m-jF3" id="CVW-wF-cEa">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="727-DH-ego" userLabel="Numero Etape">
+                                                    <rect key="frame" x="16" y="8" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="1Aa-FT-SxX"/>
+                                                        <constraint firstAttribute="width" constant="32" id="c5H-0z-Wpo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une description qui déchire et qui blablabla" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-8E-lPc" userLabel="Description Etape">
+                                                    <rect key="frame" x="56" y="8" width="287" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="qtb-8E-lPc" secondAttribute="trailing" constant="16" id="I7h-Mk-neA"/>
+                                                <constraint firstItem="727-DH-ego" firstAttribute="leading" secondItem="CVW-wF-cEa" secondAttribute="leading" constant="16" id="IOl-eG-Yua"/>
+                                                <constraint firstItem="727-DH-ego" firstAttribute="top" secondItem="CVW-wF-cEa" secondAttribute="top" constant="8" id="Tn8-g0-427"/>
+                                                <constraint firstAttribute="bottom" secondItem="qtb-8E-lPc" secondAttribute="bottom" constant="8" id="YUl-rS-HrR"/>
+                                                <constraint firstItem="qtb-8E-lPc" firstAttribute="leading" secondItem="727-DH-ego" secondAttribute="trailing" constant="8" id="dZb-VN-gDg"/>
+                                                <constraint firstAttribute="trailing" secondItem="qtb-8E-lPc" secondAttribute="trailing" constant="16" id="feZ-Aa-h1O"/>
+                                                <constraint firstItem="qtb-8E-lPc" firstAttribute="top" secondItem="CVW-wF-cEa" secondAttribute="top" constant="8" id="feh-b0-MqO"/>
+                                                <constraint firstItem="qtb-8E-lPc" firstAttribute="top" secondItem="CVW-wF-cEa" secondAttribute="top" constant="8" id="hPJ-c8-POR"/>
+                                                <constraint firstItem="qtb-8E-lPc" firstAttribute="leading" secondItem="727-DH-ego" secondAttribute="trailing" constant="8" id="ptn-4U-Eol"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="DarkBlue"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="qtb-8E-lPc" id="caR-Ik-NM2"/>
+                                            <outlet property="etapeLabel" destination="727-DH-ego" id="Hes-Sy-DAE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5e-DB-2dJ">
                                 <rect key="frame" x="8" y="609" width="359" height="50"/>
                                 <color key="backgroundColor" name="DarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VqT-ZK-olh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <state key="normal" title="Prochaine Etape">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -122,31 +210,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fi7-Y4-CSM" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" constant="8" id="122-Y1-sLG"/>
                             <constraint firstItem="JgJ-n1-WNc" firstAttribute="bottom" secondItem="E5e-DB-2dJ" secondAttribute="bottom" constant="8" id="1d6-gm-0mN"/>
-                            <constraint firstItem="fi7-Y4-CSM" firstAttribute="top" secondItem="KLR-gu-Bi1" secondAttribute="bottom" constant="8" id="HWK-6F-COQ"/>
-                            <constraint firstItem="JgJ-n1-WNc" firstAttribute="trailing" secondItem="fi7-Y4-CSM" secondAttribute="trailing" constant="8" id="OKZ-ih-JmG"/>
-                            <constraint firstItem="KLR-gu-Bi1" firstAttribute="top" secondItem="JgJ-n1-WNc" secondAttribute="top" constant="104" id="VHu-RM-HaY"/>
+                            <constraint firstItem="JgJ-n1-WNc" firstAttribute="trailing" secondItem="1V0-pv-ki0" secondAttribute="trailing" constant="8" id="8lm-V3-nhI"/>
+                            <constraint firstItem="KLR-gu-Bi1" firstAttribute="top" secondItem="JgJ-n1-WNc" secondAttribute="top" constant="20" id="VHu-RM-HaY"/>
                             <constraint firstAttribute="trailing" secondItem="o9b-tE-FCF" secondAttribute="trailing" id="YBe-ym-wcN"/>
+                            <constraint firstItem="1V0-pv-ki0" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" constant="8" id="bh9-kp-Ljd"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="bottom" secondItem="JgJ-n1-WNc" secondAttribute="bottom" id="bkS-2E-Evf"/>
                             <constraint firstItem="KLR-gu-Bi1" firstAttribute="centerX" secondItem="H7D-KL-w7X" secondAttribute="centerX" id="fuI-0x-JBo"/>
                             <constraint firstItem="E5e-DB-2dJ" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" constant="8" id="gCJ-cB-MFz"/>
+                            <constraint firstItem="1V0-pv-ki0" firstAttribute="top" secondItem="KLR-gu-Bi1" secondAttribute="bottom" constant="8" id="mUY-DL-fyL"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="top" secondItem="yub-DR-mC8" secondAttribute="top" id="nB5-p9-OXa"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="leading" secondItem="yub-DR-mC8" secondAttribute="leading" id="q9c-0S-8YB"/>
                             <constraint firstItem="JgJ-n1-WNc" firstAttribute="trailing" secondItem="E5e-DB-2dJ" secondAttribute="trailing" constant="8" id="tdL-bK-aE3"/>
+                            <constraint firstItem="E5e-DB-2dJ" firstAttribute="top" secondItem="1V0-pv-ki0" secondAttribute="bottom" constant="8" id="uHQ-qJ-oRn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JgJ-n1-WNc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="obf-4O-KG5"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="fi7-Y4-CSM" id="bX2-Zs-Spw"/>
                         <outlet property="etapeSuivanteButton" destination="E5e-DB-2dJ" id="S3c-Aq-9Ki"/>
                         <outlet property="numeroEtapeLabel" destination="C7R-lM-Q1D" id="HQm-Xu-jvA"/>
+                        <outlet property="tableauEtapes" destination="1V0-pv-ki0" id="Jds-2f-Jed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82K-bR-yVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706" y="-442"/>
+            <point key="canvasLocation" x="1704.8" y="-442.12893553223392"/>
         </scene>
         <!--Recette Description Controller-->
         <scene sceneID="L6y-hZ-tWq">
@@ -342,13 +431,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-dy-z2D">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbs-dy-z2D">
                                 <rect key="frame" x="8" y="609" width="359" height="50"/>
                                 <color key="backgroundColor" name="DarkBlue"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Etq-c7-aiU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <state key="normal" title="Cuisiner">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -439,16 +528,10 @@
             <color red="0.0" green="0.22699999809999999" blue="0.31400001049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DarkBlue">
-            <color red="0.0" green="0.22699999809999999" blue="0.31400001049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="DarkBlue">
-            <color red="0.0" green="0.22699999809999999" blue="0.31400001049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="DarkBlue">
             <color red="0.0" green="0.22699999809265137" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="DarkBlue">
-            <color red="0.0" green="0.22699999809265137" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="TransparentWhite50">
+            <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TransparentWhite50">
             <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>

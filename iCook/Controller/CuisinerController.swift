@@ -16,7 +16,7 @@ class CuisinerController : UIViewController
 
     @IBOutlet weak var numeroEtapeLabel: UILabel!
     @IBOutlet weak var etapeSuivanteButton: UIButton!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var tableauEtapes: UITableView!
     
     var recette:Recette? {
         didSet {
@@ -32,6 +32,23 @@ class CuisinerController : UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableauEtapes.delegate = self
+        tableauEtapes.dataSource = self
+        tableauEtapes.rowHeight = UITableViewAutomaticDimension
+        tableauEtapes.estimatedRowHeight = UITableViewAutomaticDimension
+
+        /*
+        //etapeSuivanteButton.contentHorizontalAlignment = .left
+        print("Image : \(etapeSuivanteButton.currentImage?.description)")
+
+        let widthButton = etapeSuivanteButton.frame.width
+        let widthLabel = etapeSuivanteButton.titleLabel?.text
+        
+        print("\n\nButton : \(widthButton), Label : \(widthLabel)\n\n")
+        
+        etapeSuivanteButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right:widthButton/2)
+         */
+ 
         if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = self
@@ -39,6 +56,8 @@ class CuisinerController : UIViewController
             print("WCSession is supported")
         }
         afficherEtape(numeroEtape:0)
+        
+        //TODO
     }
 
     
@@ -47,47 +66,63 @@ class CuisinerController : UIViewController
     }
     
     func afficherEtape(numeroEtape:Int) {
-        //mémorisation de l'étape en cours
+        
+        print("Affichage de l'étape : \(numeroEtape)")
+        
+        //mémorisation de la ligne de tableau sélectionnée actuellement
+        let etapeOldIndexPath = IndexPath.init(row: self.numeroEtape, section: 0)
+        
+        //si il n'y pas de recette, ou d'étape valide inutile de continuer
+        guard
+            let recette = self.recette,
+            numeroEtape < recette.etapes.count,
+            numeroEtape >= 0
+            else { return }
+        
+        //mémorisation de la prochaine étape
         self.numeroEtape = numeroEtape
-        
-        //si il n'y pas de recette, inutile de continuer
-        guard let recette = self.recette else { return }
-        
+
         //initialisation des variables qui seront utilisées
-        var etapeAffichee:Int           = recette.etapes.count
-        var descriptionAffichee:String  = "Bon appétit"
-        var tempsAffiche:Int            = 0
         let session                     = WCSession.default
         var hasWatchkit                 = false
-        var recetteTerminee             = true
+        var rowsToRefresh:[IndexPath]   = [IndexPath]()
         
         //on regarde si la montre est appairée
         if (session.isPaired && session.isWatchAppInstalled) {
             hasWatchkit = true
         }
-        
-        //si l'étape existe
-        if numeroEtape < recette.etapes.count && numeroEtape >= 0 {
-            etapeAffichee       = recette.etapes[numeroEtape].numeroEtape
-            descriptionAffichee = recette.etapes[numeroEtape].description
-            tempsAffiche        = recette.etapes[numeroEtape].duration
-            recetteTerminee     = false
-        }
-        
+
         DispatchQueue.main.async {
-            self.numeroEtapeLabel.text = String(etapeAffichee)
-            self.descriptionLabel.text = descriptionAffichee
-            if recetteTerminee {
+            self.numeroEtapeLabel.text = String(recette.etapes[numeroEtape].numeroEtape)
+
+            //scroll à l'étape en cours
+            let etapeIndexPath = IndexPath.init(row: numeroEtape, section: 0)
+            
+            print("Actual : \(etapeIndexPath)")
+            
+
+            if self.numeroEtape >= recette.etapes.count {
                 self.etapeSuivanteButton.setTitle("Terminé", for: .normal)
+            } else {
+                self.etapeSuivanteButton.setTitle("Prochaine Etape", for: .normal)
+
+                rowsToRefresh.append(IndexPath.init(row: self.numeroEtape, section: 0))
+                
+                if etapeOldIndexPath.row < recette.etapes.count {
+                    rowsToRefresh.append(etapeOldIndexPath)
+                }
+                //raffraichissement de l'affichage de la case
+                self.tableauEtapes.reloadRows(at: rowsToRefresh, with: .fade)
+                self.tableauEtapes.scrollToRow(at: etapeIndexPath, at: .top, animated: true)
             }
         }
         
         if hasWatchkit == true {
             session.transferUserInfo([
-                "etape":        etapeAffichee,
-                "description":  descriptionAffichee,
-                "duree":        tempsAffiche
-                ])
+                "etape":        recette.etapes[numeroEtape].numeroEtape,
+                "description":  recette.etapes[numeroEtape].description,
+                "duree":        recette.etapes[numeroEtape].duration
+            ])
         }
     }
     
@@ -95,22 +130,29 @@ class CuisinerController : UIViewController
     func etapeSuivante()
     {
         //si il n'y pas de recette, inutile de continuer
-        guard let recette = self.recette else { return }
+        guard
+            let recette = self.recette,
+            self.numeroEtape < recette.etapes.count
+            else { return }
         
-        //vérification de la cohérence de l'incrémentation
-        if numeroEtape <= recette.etapes.count {
-            self.numeroEtape+=1
-        }
-        afficherEtape(numeroEtape:self.numeroEtape)
+       let prochaineEtape = self.numeroEtape+1
+        
+        //affichage et sélection de l'étape en cours
+        afficherEtape(numeroEtape:prochaineEtape)
     }
     
     //Fonction permettant de passer à l'étape suivante
     func etapePrecedente() {
-        if numeroEtape > 0 {
-            self.numeroEtape-=1
-        }
+        //si il n'y pas de recette, inutile de continuer
+        guard
+            let recette = self.recette,
+            self.numeroEtape > 0
+            else { return }
         
-        afficherEtape(numeroEtape:self.numeroEtape)
+        let prochaineEtape = self.numeroEtape-1
+        
+        //affichage et sélection de l'étape en cours
+        afficherEtape(numeroEtape:prochaineEtape)
     }
 }
 
@@ -141,6 +183,48 @@ extension CuisinerController:WCSessionDelegate {
                 afficherEtape(numeroEtape: self.numeroEtape)
             }
         }
+    }
+}
+
+
+extension CuisinerController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let recette = self.recette else {
+            return 0
+        }
+        
+        return recette.etapes.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let recette = self.recette else {
+            return UITableViewCell()
+        }
+
+        if indexPath.row == numeroEtape {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "EtapeEnCours", for: indexPath) as? EtapeEnCoursViewCell {
+                cell.etapeLabel.text = String(recette.etapes[indexPath.row].numeroEtape)
+                cell.descriptionLabel.text = recette.etapes[indexPath.row].description
+                
+                return cell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "EtapeNormale", for: indexPath) as? EtapeNormaleViewCell {
+                cell.etapeLabel.text = String(recette.etapes[indexPath.row].numeroEtape)
+                cell.descriptionLabel.text = recette.etapes[indexPath.row].description
+                
+                return cell
+            }
+        }
+
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.afficherEtape(numeroEtape: indexPath.row)
     }
 }
 

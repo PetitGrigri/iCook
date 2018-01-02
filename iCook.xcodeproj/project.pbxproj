@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0546CEFA1FFBC3BF00622598 /* EtapeEnCoursViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546CEF91FFBC3BF00622598 /* EtapeEnCoursViewCell.swift */; };
+		0546CEFC1FFBC46000622598 /* EtapeNormaleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546CEFB1FFBC46000622598 /* EtapeNormaleViewCell.swift */; };
 		054F9EDB1FD4845E003149C2 /* ListeRecetteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9EDA1FD4845D003149C2 /* ListeRecetteController.swift */; };
 		054F9EDD1FD48BBD003149C2 /* CuisinerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9EDC1FD48BBD003149C2 /* CuisinerController.swift */; };
 		0598BEC01FD9B75B002570E3 /* Recette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598BEBF1FD9B75B002570E3 /* Recette.swift */; };
@@ -122,6 +124,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0546CEF91FFBC3BF00622598 /* EtapeEnCoursViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtapeEnCoursViewCell.swift; sourceTree = "<group>"; };
+		0546CEFB1FFBC46000622598 /* EtapeNormaleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtapeNormaleViewCell.swift; sourceTree = "<group>"; };
 		054F9EDA1FD4845D003149C2 /* ListeRecetteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeRecetteController.swift; sourceTree = "<group>"; };
 		054F9EDC1FD48BBD003149C2 /* CuisinerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinerController.swift; sourceTree = "<group>"; };
 		0598BEBF1FD9B75B002570E3 /* Recette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recette.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 				05C37ECB1FF9319200125FA9 /* SectionDescriptionView.xib */,
 				05C37EC91FF9316000125FA9 /* SectionDescriptionView.swift */,
 				05C19D8A1FFA4E34009988A1 /* InformationsDiversesViewCell.swift */,
+				0546CEF91FFBC3BF00622598 /* EtapeEnCoursViewCell.swift */,
+				0546CEFB1FFBC46000622598 /* EtapeNormaleViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -560,6 +566,8 @@
 				E094913E1FF2CEC100AC1E8D /* GameScene.swift in Sources */,
 				E094914C1FF2CEC100AC1E8D /* Int+Extensions.swift in Sources */,
 				E094915A1FF2CEC100AC1E8D /* SKTAudio.swift in Sources */,
+				0546CEFC1FFBC46000622598 /* EtapeNormaleViewCell.swift in Sources */,
+				0546CEFA1FFBC3BF00622598 /* EtapeEnCoursViewCell.swift in Sources */,
 				E094914A1FF2CEC100AC1E8D /* CGVector+Extensions.swift in Sources */,
 				05C19D8B1FFA4E34009988A1 /* InformationsDiversesViewCell.swift in Sources */,
 				0598BEC01FD9B75B002570E3 /* Recette.swift in Sources */,
