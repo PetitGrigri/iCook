@@ -63,16 +63,22 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLR-gu-Bi1" userLabel="Numéro Etape">
                                 <rect key="frame" x="123" y="84" width="128" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="étape" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoZ-Pa-6Fq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Étape" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoZ-Pa-6Fq">
                                         <rect key="frame" x="46" y="19.5" width="37" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7R-lM-Q1D">
-                                        <rect key="frame" x="17.5" y="40.5" width="94" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7R-lM-Q1D">
+                                        <rect key="frame" x="52" y="40.5" width="25" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" name="DarkBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="en cours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEB-Lm-21Q">
+                                        <rect key="frame" x="31" y="96" width="66" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -80,7 +86,9 @@
                                 <constraints>
                                     <constraint firstItem="C7R-lM-Q1D" firstAttribute="centerX" secondItem="KLR-gu-Bi1" secondAttribute="centerX" id="3y7-fy-YhX"/>
                                     <constraint firstItem="eoZ-Pa-6Fq" firstAttribute="centerX" secondItem="KLR-gu-Bi1" secondAttribute="centerX" id="B4c-7H-LNm"/>
+                                    <constraint firstItem="TEB-Lm-21Q" firstAttribute="centerX" secondItem="KLR-gu-Bi1" secondAttribute="centerX" id="Jqv-Sc-TKT"/>
                                     <constraint firstAttribute="height" constant="128" id="NOf-Wh-HIP"/>
+                                    <constraint firstItem="TEB-Lm-21Q" firstAttribute="top" secondItem="C7R-lM-Q1D" secondAttribute="bottom" constant="7.5" id="Rft-mS-H6y"/>
                                     <constraint firstAttribute="width" constant="128" id="Sw5-hW-pCk"/>
                                     <constraint firstItem="C7R-lM-Q1D" firstAttribute="centerY" secondItem="KLR-gu-Bi1" secondAttribute="centerY" id="agh-IU-Rua"/>
                                     <constraint firstItem="C7R-lM-Q1D" firstAttribute="top" secondItem="eoZ-Pa-6Fq" secondAttribute="bottom" constant="4" id="jsE-an-sRs"/>
@@ -111,13 +119,13 @@
                                                         <constraint firstAttribute="height" constant="32" id="VzM-yI-F65"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une description qui déchire et qui blablabla" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIX-f3-zKI" userLabel="Description Etape">
                                                     <rect key="frame" x="56" y="8" width="287" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -151,13 +159,13 @@
                                                         <constraint firstAttribute="width" constant="32" id="c5H-0z-Wpo"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="DarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une description qui déchire et qui blablabla" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-8E-lPc" userLabel="Description Etape">
                                                     <rect key="frame" x="56" y="8" width="287" height="27.5"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="DarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -174,7 +182,7 @@
                                                 <constraint firstItem="qtb-8E-lPc" firstAttribute="leading" secondItem="727-DH-ego" secondAttribute="trailing" constant="8" id="ptn-4U-Eol"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="DarkBlue"/>
+                                        <color key="backgroundColor" name="TransparentWhite80"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="qtb-8E-lPc" id="caR-Ik-NM2"/>
                                             <outlet property="etapeLabel" destination="727-DH-ego" id="Hes-Sy-DAE"/>
@@ -535,6 +543,9 @@
         </namedColor>
         <namedColor name="TransparentWhite50">
             <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TransparentWhite80">
+            <color red="1" green="1" blue="1" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TransparentWhite80">
             <color red="1" green="1" blue="1" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
