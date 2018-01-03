@@ -85,11 +85,11 @@ class CuisinerController : UIViewController
         self.numeroEtape = numeroEtape
 
         //initialisation des variables qui seront utilisées
-        var hasWatchkit                 = false
         var rowsToRefresh:[IndexPath]   = [IndexPath]()
 
         DispatchQueue.main.async {
             
+            // envoyer les informations à la montre
             let session = WCSession.default
             
             guard session.isPaired && session.isWatchAppInstalled else {
@@ -253,6 +253,7 @@ extension CuisinerController: UITableViewDelegate, UITableViewDataSource {
 
 extension UIViewController {
     
+    //show Android style toast msg
     func showToast(message : String) {
         
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
@@ -270,12 +271,6 @@ extension UIViewController {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
-    }
-}
-
-func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-        completion()
     }
 }
 
