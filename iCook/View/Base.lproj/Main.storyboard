@@ -164,7 +164,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Une description qui déchire et qui blablabla" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-8E-lPc" userLabel="Description Etape">
                                                     <rect key="frame" x="56" y="8" width="287" height="27.5"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="DarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -495,6 +495,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhW-KY-MKG">
                                 <rect key="frame" x="0.0" y="-64" width="375" height="731"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="g6Z-3v-3vI">
+                                <rect key="frame" x="168" y="564" width="39" height="37"/>
+                            </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoBleu" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-7E-5qc">
                                 <rect key="frame" x="155.5" y="158" width="64" height="64"/>
                                 <constraints>
@@ -506,10 +509,12 @@
                         <color key="backgroundColor" name="DarkBlue"/>
                         <constraints>
                             <constraint firstItem="UhW-KY-MKG" firstAttribute="trailing" secondItem="1qE-xz-eVB" secondAttribute="trailing" id="2LI-dr-XLu"/>
+                            <constraint firstItem="g6Z-3v-3vI" firstAttribute="centerX" secondItem="1qE-xz-eVB" secondAttribute="centerX" id="3hC-Lr-GYG"/>
                             <constraint firstItem="rCG-7E-5qc" firstAttribute="centerX" secondItem="CGM-dt-B76" secondAttribute="centerX" id="DlH-VV-TUM"/>
                             <constraint firstItem="UhW-KY-MKG" firstAttribute="leading" secondItem="1qE-xz-eVB" secondAttribute="leading" id="GV6-HP-Qem"/>
                             <constraint firstItem="rCG-7E-5qc" firstAttribute="top" secondItem="1qE-xz-eVB" secondAttribute="top" constant="94" id="W4r-9p-WJP"/>
                             <constraint firstAttribute="bottom" secondItem="UhW-KY-MKG" secondAttribute="bottom" id="XnV-X2-qcV"/>
+                            <constraint firstItem="1qE-xz-eVB" firstAttribute="bottom" secondItem="g6Z-3v-3vI" secondAttribute="bottom" constant="66" id="cvC-2Q-QKH"/>
                             <constraint firstItem="UhW-KY-MKG" firstAttribute="top" secondItem="CGM-dt-B76" secondAttribute="top" constant="-64" id="oib-a1-fNP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1qE-xz-eVB"/>
@@ -517,7 +522,8 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="fjT-Cj-si6"/>
                     <navigationItem key="navigationItem" title="Vos recettes" id="AUA-aR-M3U"/>
                     <connections>
-                        <outlet property="scrollView" destination="UhW-KY-MKG" id="uVQ-if-8lR"/>
+                        <outlet property="recettesPageControl" destination="g6Z-3v-3vI" id="ojn-ar-f6I"/>
+                        <outlet property="recettesScrollView" destination="UhW-KY-MKG" id="uVQ-if-8lR"/>
                         <segue destination="1Ou-ec-ocu" kind="show" identifier="ListeToDescription" id="i9t-FU-T0X"/>
                     </connections>
                 </viewController>

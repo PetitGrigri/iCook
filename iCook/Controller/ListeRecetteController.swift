@@ -13,31 +13,46 @@ import UIKit
 class ListeRecetteController : UIViewController {
     
     //objet lié à la vue
-    @IBOutlet weak var scrollView: UIScrollView!
-
+    @IBOutlet weak var recettesScrollView: UIScrollView!
+    @IBOutlet weak var recettesPageControl: UIPageControl!
+    
     //les recettes
     var listeRecettes:[Recette] = [Recette]()
-    
+    var pageVisualiseeEnCours = 0 {
+        didSet {
+            if (self.pageVisualiseeEnCours >= self.listeRecettes.count) {
+                pageVisualiseeEnCours = self.listeRecettes.count - 1
+            }
+            if (self.pageVisualiseeEnCours < 0) {
+                pageVisualiseeEnCours = 0
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         listeRecettes.append(RecetteFactory.createTiramisu())
         listeRecettes.append(RecetteFactory.createTarteCitron())
-
-        //self.tabBarItem = UITabBarItem(title: "Recette", image: #imageLiteral(resourceName: "Book"), selectedImage: #imageLiteral(resourceName: "Book"))
-
+        listeRecettes.append(RecetteFactory.createTiramisu())
+        listeRecettes.append(RecetteFactory.createTarteCitron())
     }
     
     
     override func viewDidLoad()
     {
         //récupération de la taille de la view principale
-        self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
+        self.recettesScrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
 
+        let scrollViewWidth:CGFloat = self.recettesScrollView.frame.width
+        let scrollViewHeight:CGFloat = self.recettesScrollView.frame.height
         
-        let scrollViewWidth:CGFloat = self.scrollView.frame.width
-        let scrollViewHeight:CGFloat = self.scrollView.frame.height
+        recettesScrollView.delegate = self
+        //TODO voir si on peut utiliser un autoDimension de iOS 11
+        
 
+        recettesPageControl.numberOfPages = listeRecettes.count
+        
+        
         for (index,recette) in listeRecettes.enumerated() {
 
             print(recette.nom)
@@ -56,13 +71,13 @@ class ListeRecetteController : UIViewController {
 
                 //positionnement de notre vue (on fait en sorte qu'elle soit à la suite)
                 viewRecette.frame.origin.x = CGFloat(index) * scrollViewWidth
-                self.scrollView.addSubview(viewRecette)
+                self.recettesScrollView.addSubview(viewRecette)
             }
         }
 
         //scrollView.isPagingEnabled = true
 
-        self.scrollView.contentSize = CGSize(width: scrollViewWidth * CGFloat(listeRecettes.count), height: scrollViewHeight)
+        self.recettesScrollView.contentSize = CGSize(width: scrollViewWidth * CGFloat(listeRecettes.count), height: scrollViewHeight)
 
 
     }
@@ -81,12 +96,37 @@ class ListeRecetteController : UIViewController {
 
 
 extension ListeRecetteController : UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        self.pageVisualiseeEnCours = Int((recettesScrollView.contentOffset.x / recettesScrollView.frame.width).rounded())
+        self.recettesPageControl.currentPage = self.pageVisualiseeEnCours
+    }
+    
+    func refresh(_ scrollView: UIScrollView) {
+        self.pageVisualiseeEnCours = Int((recettesScrollView.contentOffset.x / recettesScrollView.frame.width).rounded())
+
+        let offsetPage = CGPoint(x: (CGFloat(self.pageVisualiseeEnCours) * recettesScrollView.frame.width), y: -64)
+        
+        recettesScrollView.setContentOffset(offsetPage, animated: true)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        refresh(scrollView)
+    }
+    
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        refresh(scrollView)
+    }
+    
+
     
 }
 
 extension ListeRecetteController : TouchProtocol {
     func touch(recette: Recette) {
         performSegue(withIdentifier: "ListeToDescription", sender: recette)
+        
+        
 
     }
 }
