@@ -40,7 +40,6 @@ class ListeRecetteController : UIViewController {
     
     override func viewDidLoad()
     {
-        //récupération de la taille de la view principale
         self.recettesScrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
 
         let scrollViewWidth:CGFloat = self.recettesScrollView.frame.width

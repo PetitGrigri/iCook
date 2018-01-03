@@ -92,10 +92,12 @@ class CuisinerController : UIViewController
             // envoyer les informations à la montre
             let session = WCSession.default
             
-            guard session.isPaired && session.isWatchAppInstalled else {
+            /*
+            if !session.isPaired && session.isWatchAppInstalled else {
                 self.showToast(message: "Watch error")
                 return
             }
+             */
             
             session.sendMessage([
                 "etape":        recette.etapes[numeroEtape].numeroEtape,
@@ -104,13 +106,7 @@ class CuisinerController : UIViewController
                 ], replyHandler: { ([String : Any]) in
                     
             })
-            
-            /*session.transferUserInfo([
-                "etape":        recette.etapes[numeroEtape].numeroEtape,
-                "description":  recette.etapes[numeroEtape].description,
-                "duree":        recette.etapes[numeroEtape].duration
-                ])*/
-            
+
             self.numeroEtapeLabel.text = String(recette.etapes[numeroEtape].numeroEtape)
 
             //scroll à l'étape en cours
