@@ -31,6 +31,7 @@ class CuisinerController : UIViewController
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         tableauEtapes.delegate = self
@@ -73,27 +74,34 @@ class CuisinerController : UIViewController
         //mémorisation de la ligne de tableau sélectionnée actuellement
         let etapeOldIndexPath = IndexPath.init(row: self.numeroEtape, section: 0)
         
-        //si il n'y pas de recette, ou d'étape valide inutile de continuer
+        //si il n'y pas de recette ou d'étape valide, inutile de continuer
         guard
             let recette = self.recette,
             numeroEtape < recette.etapes.count,
             numeroEtape >= 0
-            else { return }
+            else {return}
         
         //mémorisation de la prochaine étape
         self.numeroEtape = numeroEtape
 
         //initialisation des variables qui seront utilisées
-        let session                     = WCSession.default
         var hasWatchkit                 = false
         var rowsToRefresh:[IndexPath]   = [IndexPath]()
-        
-        //on regarde si la montre est appairée
-        if (session.isPaired && session.isWatchAppInstalled) {
-            hasWatchkit = true
-        }
 
         DispatchQueue.main.async {
+            
+            let session = WCSession.default
+            
+            guard session.isPaired && session.isWatchAppInstalled else {
+                self.showToast(message: "Watch error")
+                return
+            }
+            session.transferUserInfo([
+                "etape":        recette.etapes[numeroEtape].numeroEtape,
+                "description":  recette.etapes[numeroEtape].description,
+                "duree":        recette.etapes[numeroEtape].duration
+                ])
+            
             self.numeroEtapeLabel.text = String(recette.etapes[numeroEtape].numeroEtape)
 
             //scroll à l'étape en cours
@@ -117,14 +125,6 @@ class CuisinerController : UIViewController
                 self.tableauEtapes.scrollToRow(at: etapeIndexPath, at: .top, animated: true)
             }
         }
-        
-        if hasWatchkit == true {
-            session.transferUserInfo([
-                "etape":        recette.etapes[numeroEtape].numeroEtape,
-                "description":  recette.etapes[numeroEtape].description,
-                "duree":        recette.etapes[numeroEtape].duration
-            ])
-        }
     }
     
     //Fonction permettant de passer à l'étape suivante
@@ -142,7 +142,7 @@ class CuisinerController : UIViewController
         afficherEtape(numeroEtape:prochaineEtape)
     }
     
-    //Fonction permettant de passer à l'étape suivante
+    //Fonction permettant de passer à l'étape precedente
     func etapePrecedente() {
         //si il n'y pas de recette, inutile de continuer
         guard
@@ -248,6 +248,34 @@ extension CuisinerController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+}
+
+extension UIViewController {
+    
+    func showToast(message : String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+}
+
+func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+        completion()
     }
 }
 

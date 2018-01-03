@@ -24,11 +24,7 @@ class InterfaceController: WKInterfaceController {
         
         super.awake(withContext: context)
         
-        self.timerButton.setHidden(true)
-        self.nextButton.setHidden(true)
-        self.etapeNumLabel.setHidden(true)
-        self.descriptionEtapeLabel.setHidden(true)
-        self.logoImage.setHidden(false)
+        showWelcomeLogo(setVisible: true)
         
         if WCSession.isSupported() {
             print("supported")
@@ -74,6 +70,25 @@ class InterfaceController: WKInterfaceController {
             print(error)
         }
     }
+    
+    func showWelcomeLogo(setVisible:Bool) {
+        
+        if(setVisible){
+            self.timerButton.setHidden(true)
+            self.nextButton.setHidden(true)
+            self.etapeNumLabel.setHidden(true)
+            self.descriptionEtapeLabel.setHidden(true)
+            self.logoImage.setHidden(false)
+        } else{
+            self.timerButton.setHidden(false)
+            self.nextButton.setHidden(false)
+            self.etapeNumLabel.setHidden(false)
+            self.descriptionEtapeLabel.setHidden(false)
+            self.logoImage.setHidden(true)
+        }
+        
+    }
+    
 }
 
 
@@ -81,25 +96,29 @@ class InterfaceController: WKInterfaceController {
 
 
 extension InterfaceController:WCSessionDelegate {
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("activationDidCompleteWith : \(activationState)")
     }
+    
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
-
+        
         guard   let etape   = userInfo["etape"] as? Int,
-                let desc    = userInfo["description"] as? String,
-                let duree   = userInfo["duree"] as? Int else {
-            return
+            let desc    = userInfo["description"] as? String,
+            let duree   = userInfo["duree"] as? Int else {
+                return
         }
         
-        self.timerButton.setHidden(false)
-        self.nextButton.setHidden(false)
-        self.etapeNumLabel.setHidden(false)
-        self.descriptionEtapeLabel.setHidden(false)
-        self.logoImage.setHidden(true)
+        let etapeTxt = "Étape : \(etape)"
         
-        self.etapeNumLabel.setText("Étape : \(etape)")
-        self.descriptionEtapeLabel.setText(desc)
+        print("watch etape : \(etape)")
+        print("watch desc : \(desc)")
+        
+        DispatchQueue.main.async {
+            self.etapeNumLabel.setText(etapeTxt)
+            self.descriptionEtapeLabel.setText(desc)
+            self.showWelcomeLogo(setVisible: false)
+        }
         
     }
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
