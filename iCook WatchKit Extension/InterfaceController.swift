@@ -92,18 +92,41 @@ class InterfaceController: WKInterfaceController {
 }
 
 
-
-
-
 extension InterfaceController:WCSessionDelegate {
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("activationDidCompleteWith : \(activationState)")
     }
     
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        
+        DispatchQueue.main.async {
+            
+            guard   let etape   = message["etape"] as? Int,
+                let desc    = message["description"] as? String,
+                let duree   = message["duree"] as? Int else {
+                    return
+            }
+            
+            let etapeTxt = "Étape : \(etape)"
+            
+            print("watch etape : \(etape)")
+            print("watch desc : \(desc)")
+            
+            self.etapeNumLabel.setText(etapeTxt)
+            self.descriptionEtapeLabel.setText(desc)
+            self.showWelcomeLogo(setVisible: false)
+            
+            print("watch set ok")
+            
+            // reply handler to complete
+        }
+        
+    }
+    
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         
-        guard   let etape   = userInfo["etape"] as? Int,
+        /*guard   let etape   = userInfo["etape"] as? Int,
             let desc    = userInfo["description"] as? String,
             let duree   = userInfo["duree"] as? Int else {
                 return
@@ -118,7 +141,7 @@ extension InterfaceController:WCSessionDelegate {
             self.etapeNumLabel.setText(etapeTxt)
             self.descriptionEtapeLabel.setText(desc)
             self.showWelcomeLogo(setVisible: false)
-        }
+        }*/
         
     }
     func session(_ session: WCSession, didReceive file: WCSessionFile) {

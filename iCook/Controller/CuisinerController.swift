@@ -96,11 +96,20 @@ class CuisinerController : UIViewController
                 self.showToast(message: "Watch error")
                 return
             }
-            session.transferUserInfo([
+            
+            session.sendMessage([
                 "etape":        recette.etapes[numeroEtape].numeroEtape,
                 "description":  recette.etapes[numeroEtape].description,
                 "duree":        recette.etapes[numeroEtape].duration
-                ])
+                ], replyHandler: { ([String : Any]) in
+                    
+            })
+            
+            /*session.transferUserInfo([
+                "etape":        recette.etapes[numeroEtape].numeroEtape,
+                "description":  recette.etapes[numeroEtape].description,
+                "duree":        recette.etapes[numeroEtape].duration
+                ])*/
             
             self.numeroEtapeLabel.text = String(recette.etapes[numeroEtape].numeroEtape)
 
