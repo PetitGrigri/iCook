@@ -25,6 +25,10 @@ class RingProgressBarController: WKInterfaceController {
         
         // Configure interface objects here.
         
+        let customDuration = context as! Double
+        
+        print("watch duration : \(customDuration)")
+        
         // do reverse ring progress bar
         
         scene = GameScene(size: contentFrame.size)
@@ -35,7 +39,7 @@ class RingProgressBarController: WKInterfaceController {
         ring.arcEnd = CGFloat(position)
         
         // set duration
-        durationInMin = 1.0
+        durationInMin = customDuration
         
         print(getPositionStep())
         
@@ -55,6 +59,8 @@ class RingProgressBarController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        print("didDeactivate")
+        stopTimer()
     }
     
     func startTimer() -> Void {
@@ -76,6 +82,23 @@ class RingProgressBarController: WKInterfaceController {
         scene.addChild(winner)
     }
     
+    // make vibration and notification
+    func makeAlert() {
+        WKInterfaceDevice.current().play(.notification)
+    }
+    
+    // close the current controller
+    func finishController() {
+        self.pop()
+    }
+    
+    func stopTimer() {
+        if(timer != nil){
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
     @objc func update() {
         
         print("Position : \(position)")
@@ -86,12 +109,10 @@ class RingProgressBarController: WKInterfaceController {
             ring.arcEnd = CGFloat(position)
         } else {
             // stop timer
-            //showText()
-            if(timer != nil){
-                
-                timer?.invalidate()
-                timer = nil
-            }
+            
+            makeAlert()
+            finishController()
+            stopTimer()
         }
     }
     
