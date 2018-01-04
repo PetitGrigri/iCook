@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -48,7 +49,7 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLR-gu-Bi1" userLabel="Numéro Etape">
-                                <rect key="frame" x="123" y="84" width="128" height="128"/>
+                                <rect key="frame" x="123" y="72" width="128" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Étape" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoZ-Pa-6Fq">
                                         <rect key="frame" x="47" y="20.5" width="35" height="16"/>
@@ -87,8 +88,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-TD-pdn" userLabel="Watch OK">
+                                <rect key="frame" x="335" y="72" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="byi-Vb-HDY"/>
+                                    <constraint firstAttribute="width" constant="32" id="vpi-d7-qej"/>
+                                </constraints>
+                                <state key="normal" image="watch_ok"/>
+                            </button>
+                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDk-uc-3Ja" userLabel="Watch KO">
+                                <rect key="frame" x="335" y="72" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="LmU-wX-jiU"/>
+                                    <constraint firstAttribute="height" constant="32" id="aGT-vP-Ham"/>
+                                </constraints>
+                                <state key="normal" image="watch_ko"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1V0-pv-ki0" userLabel="Liste Etape Tableau">
-                                <rect key="frame" x="8" y="220" width="359" height="381"/>
+                                <rect key="frame" x="8" y="208" width="359" height="393"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -212,19 +229,23 @@
                             <constraint firstItem="KLR-gu-Bi1" firstAttribute="centerX" secondItem="yub-DR-mC8" secondAttribute="centerX" id="D2s-ed-7Ek"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="trailing" secondItem="JgJ-n1-WNc" secondAttribute="trailing" id="IGo-TN-Bfl"/>
                             <constraint firstItem="H7D-KL-w7X" firstAttribute="trailing" secondItem="JgJ-n1-WNc" secondAttribute="trailing" id="PlQ-gg-Tou"/>
+                            <constraint firstItem="qFi-TD-pdn" firstAttribute="top" secondItem="JgJ-n1-WNc" secondAttribute="top" constant="8" id="Riw-iH-LU6"/>
                             <constraint firstItem="H7D-KL-w7X" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" id="RsT-gW-Bok"/>
+                            <constraint firstItem="cDk-uc-3Ja" firstAttribute="top" secondItem="yub-DR-mC8" secondAttribute="topMargin" constant="8" id="SpT-Zp-4we"/>
                             <constraint firstItem="H7D-KL-w7X" firstAttribute="bottom" secondItem="JgJ-n1-WNc" secondAttribute="bottom" id="UdZ-GN-lVK"/>
-                            <constraint firstItem="KLR-gu-Bi1" firstAttribute="top" secondItem="JgJ-n1-WNc" secondAttribute="top" constant="20" id="VHu-RM-HaY"/>
                             <constraint firstAttribute="trailing" secondItem="o9b-tE-FCF" secondAttribute="trailing" id="YBe-ym-wcN"/>
                             <constraint firstItem="H7D-KL-w7X" firstAttribute="top" secondItem="yub-DR-mC8" secondAttribute="top" id="b5e-Dr-yqg"/>
+                            <constraint firstItem="JgJ-n1-WNc" firstAttribute="trailing" secondItem="cDk-uc-3Ja" secondAttribute="trailing" constant="8" id="bLY-ut-3r7"/>
                             <constraint firstItem="1V0-pv-ki0" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" constant="8" id="bh9-kp-Ljd"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="bottom" secondItem="JgJ-n1-WNc" secondAttribute="bottom" id="bkS-2E-Evf"/>
+                            <constraint firstItem="JgJ-n1-WNc" firstAttribute="trailing" secondItem="qFi-TD-pdn" secondAttribute="trailing" constant="8" id="def-2g-Qhv"/>
                             <constraint firstItem="H7D-KL-w7X" firstAttribute="top" secondItem="yub-DR-mC8" secondAttribute="top" id="fkY-Cd-7nG"/>
                             <constraint firstItem="E5e-DB-2dJ" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" constant="8" id="gCJ-cB-MFz"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" id="gTK-C7-zrg"/>
                             <constraint firstItem="H7D-KL-w7X" firstAttribute="trailing" secondItem="JgJ-n1-WNc" secondAttribute="trailing" id="hJC-be-ECg"/>
                             <constraint firstItem="H7D-KL-w7X" firstAttribute="leading" secondItem="JgJ-n1-WNc" secondAttribute="leading" id="lyL-9S-r0l"/>
                             <constraint firstItem="1V0-pv-ki0" firstAttribute="top" secondItem="KLR-gu-Bi1" secondAttribute="bottom" constant="8" id="mUY-DL-fyL"/>
+                            <constraint firstItem="KLR-gu-Bi1" firstAttribute="top" secondItem="JgJ-n1-WNc" secondAttribute="top" constant="8" id="maw-60-77l"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="top" secondItem="yub-DR-mC8" secondAttribute="top" id="nB5-p9-OXa"/>
                             <constraint firstItem="o9b-tE-FCF" firstAttribute="leading" secondItem="yub-DR-mC8" secondAttribute="leading" id="q9c-0S-8YB"/>
                             <constraint firstItem="JgJ-n1-WNc" firstAttribute="trailing" secondItem="E5e-DB-2dJ" secondAttribute="trailing" constant="8" id="tdL-bK-aE3"/>
@@ -238,6 +259,8 @@
                         <outlet property="etapeSuivanteButton" destination="E5e-DB-2dJ" id="S3c-Aq-9Ki"/>
                         <outlet property="numeroEtapeLabel" destination="C7R-lM-Q1D" id="HQm-Xu-jvA"/>
                         <outlet property="tableauEtapes" destination="1V0-pv-ki0" id="Jds-2f-Jed"/>
+                        <outlet property="watchButtonKO" destination="cDk-uc-3Ja" id="fjx-w6-Tcc"/>
+                        <outlet property="watchButtonOK" destination="qFi-TD-pdn" id="ZRx-vx-a8S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82K-bR-yVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,6 +552,8 @@
         <image name="euro" width="128" height="128"/>
         <image name="personnes" width="128" height="128"/>
         <image name="sablier" width="128" height="128"/>
+        <image name="watch_ko" width="64" height="64"/>
+        <image name="watch_ok" width="64" height="64"/>
         <namedColor name="DarkBlue">
             <color red="0.0" green="0.22699999809999999" blue="0.31400001049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
