@@ -17,6 +17,8 @@ class CuisinerController : UIViewController
     @IBOutlet weak var numeroEtapeLabel: UILabel!
     @IBOutlet weak var etapeSuivanteButton: UIButton!
     @IBOutlet weak var tableauEtapes: UITableView!
+    @IBOutlet weak var watchButtonOK: UIButton!
+    @IBOutlet weak var watchButtonKO: UIButton!
     
     var recette:Recette? {
         didSet {
@@ -38,18 +40,6 @@ class CuisinerController : UIViewController
         tableauEtapes.dataSource = self
         tableauEtapes.rowHeight = UITableViewAutomaticDimension
         tableauEtapes.estimatedRowHeight = UITableViewAutomaticDimension
-
-        /*
-        //etapeSuivanteButton.contentHorizontalAlignment = .left
-        print("Image : \(etapeSuivanteButton.currentImage?.description)")
-
-        let widthButton = etapeSuivanteButton.frame.width
-        let widthLabel = etapeSuivanteButton.titleLabel?.text
-        
-        print("\n\nButton : \(widthButton), Label : \(widthLabel)\n\n")
-        
-        etapeSuivanteButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right:widthButton/2)
-         */
  
         if WCSession.isSupported() {
             let session = WCSession.default
@@ -65,6 +55,18 @@ class CuisinerController : UIViewController
     
     @IBAction func touchEtapeSuivante(_ sender: Any) {
         etapeSuivante()
+    }
+
+    func checkWatchPaired (session:WCSession) {
+        if session.isPaired && session.isWatchAppInstalled && session.isReachable {
+            print("checkWatchPaired :OK")
+            watchButtonOK.isHidden = false
+            watchButtonKO.isHidden = true
+        } else {
+            print("checkWatchPaired : KO")
+            watchButtonOK.isHidden = true
+            watchButtonKO.isHidden = false
+        }
     }
     
     func afficherEtape(numeroEtape:Int) {
@@ -92,12 +94,7 @@ class CuisinerController : UIViewController
             // envoyer les informations à la montre
             let session = WCSession.default
             
-            /*
-            if !session.isPaired && session.isWatchAppInstalled else {
-                self.showToast(message: "Watch error")
-                return
-            }
-             */
+            self.checkWatchPaired(session:session)
             
             session.sendMessage([
                 "etape":        recette.etapes[numeroEtape].numeroEtape,
@@ -111,9 +108,6 @@ class CuisinerController : UIViewController
 
             //scroll à l'étape en cours
             let etapeIndexPath = IndexPath.init(row: numeroEtape, section: 0)
-            
-            print("Actual : \(etapeIndexPath)")
-            
 
             if self.numeroEtape >= recette.etapes.count {
                 self.etapeSuivanteButton.setTitle("Terminé", for: .normal)
@@ -151,7 +145,7 @@ class CuisinerController : UIViewController
     func etapePrecedente() {
         //si il n'y pas de recette, inutile de continuer
         guard
-            let recette = self.recette,
+            let _ = self.recette,
             self.numeroEtape > 0
             else { return }
         
@@ -178,7 +172,6 @@ extension CuisinerController:WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        
         print("didReceiveMessage : \n \(message)")
         
         if let action = message["action"] as? String {
@@ -256,6 +249,7 @@ extension CuisinerController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//TODO : généraliser cette extension, et la mettre dans un dossier extension
 extension UIViewController {
     
     //show Android style toast msg
